@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CityFALCON</string>
+    <string name="string_Signal">Signal</string>
+    <string name="string_Signals">Signals</string>
+    <string name="string_Watchlist">Watchlist</string>
+    <string name="string_Search">Search</string>
+    <string name="string_Sectors">Sectors</string>
+    <string name="string_More">More</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="companies_or_symbols">Companies or symbols</string>
+    <string name="string_bue">BUE</string>
+    <string name="string_sell">SELL</string>
+
+
+</resources>
