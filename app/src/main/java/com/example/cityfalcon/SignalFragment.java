@@ -1,13 +1,18 @@
 package com.example.cityfalcon;
 
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 
 /**
@@ -24,8 +29,31 @@ public class SignalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signal, container, false);
+        View root = inflater.inflate(R.layout.fragment_signal, container, false);
+     //   RecyclerView sellBuyRecyclerView = root.findViewById(R.id.sell_buy_recyclerView);
+
+
+        LinearLayout sellLinearLayout = root.findViewById(R.id.LinearLayout_sell_signal_fragment);
+        LinearLayout buyLinearLayout = root.findViewById(R.id.LinearLayout_buy_signal_fragment);
+
+
+        sellLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.borser_for_sell_or_buy));
+                buyLinearLayout.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.colorWhite));
+            }
+        });
+
+        buyLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.borser_for_sell_or_buy));
+                sellLinearLayout.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.colorWhite));
+            }
+        });
+
+        return root;
     }
 
 }
