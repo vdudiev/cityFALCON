@@ -6,11 +6,81 @@
     tools:context=".MoreFragment"
     android:background="@color/colorWhite">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="MORE FRAGMENT"
-        android:gravity="center"
-        android:textColor="@color/colorBlack"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_More"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <FrameLayout
+            android:id="@+id/frameLayout_subscription_more_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_gray_border"
+            android:layout_marginTop="15dp"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/subscription_more_fragment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/string_subscription"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/chevron_right"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="end"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout_terms_conditions_more_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_gray_border"
+            android:layout_marginTop="15dp"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/terms_conditions_more_fragment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/string_terms_amp_conditions"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/chevron_right"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="end"/>
+        </FrameLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

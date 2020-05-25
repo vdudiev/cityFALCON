@@ -12,6 +12,10 @@
     <string name="companies_or_symbols">Companies or symbols</string>
     <string name="string_bue">BUE</string>
     <string name="string_sell">SELL</string>
+    <string name="symbol_date">Symbol / Date</string>
+    <string name="sell_price">Sell price</string>
+    <string name="string_subscription">Subscription</string>
+    <string name="string_terms_amp_conditions"><![CDATA[Terms&Conditions]]></string>
 
 
 </resources>

@@ -33,7 +33,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/text_number_of_short_terms"
+            android:id="@+id/text_number_of_short_terms_signal_fragment"
             android:layout_width="match_parent"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
@@ -125,6 +125,39 @@
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/symbol_date"
+                android:layout_gravity="start"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/sell_price"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="Current price"
+                android:layout_gravity="end"/>
+        </FrameLayout>
+
 
     </LinearLayout>
 

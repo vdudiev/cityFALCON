@@ -6,11 +6,87 @@
     android:background="@color/colorWhite"
     tools:context=".SearchFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="SEARCH FRAGMENT"
-        android:gravity="center"
-        android:textColor="@color/colorBlack"/>
+        android:orientation="vertical">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/background_with_shadow"
+            android:padding="15dp">
+
+            <Button
+                android:id="@+id/button_search_search_fragment"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/search"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorFA"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:hint="@string/companies_or_symbols"
+                android:textColorHint="@color/colorSecondary"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 72 results"
+            android:textColor="@color/colorSecondary"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorSecondary"
+            android:layout_marginTop="15dp">
+
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/symbol_date"
+                android:layout_gravity="start"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/sell_price"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="Current price"
+                android:layout_gravity="end"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
 </RelativeLayout>
