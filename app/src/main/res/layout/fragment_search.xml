@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
 
         <LinearLayout
@@ -36,7 +37,9 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
                 android:hint="@string/companies_or_symbols"
-                android:textColorHint="@color/colorSecondary"/>
+                android:textColorHint="@color/colorSecondary"
+                android:importantForAutofill="no"
+                android:inputType="text" />
         </LinearLayout>
 
         <TextView
@@ -47,20 +50,108 @@
             android:textSize="15sp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="6dp"/>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorSecondary"
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:layout_marginTop="15dp">
 
-        </ScrollView>
+            <LinearLayout
+                android:id="@+id/linearLayout_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp">
+
+                <Button
+                    android:id="@+id/button_all__scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:background="@drawable/outline_background_selected_search_fragment"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/string_all"
+                    android:layout_marginStart="8dp"/>
+
+                <Button
+                    android:id="@+id/button_eu_stocks_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_eu_stocks"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/button_us_stocks_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_us_stocks"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/button_indices_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_indices"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/button_forex_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_forex"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/button_cryptos_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_cryptos"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/button_etf_s_scroll_search_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="12sp"
+                    android:background="@drawable/outline_background_search_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/string_etf_s"
+                    android:layout_marginStart="8dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -83,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textColor="@color/colorSecondary"
-                android:text="Current price"
+                android:text="@string/string_current_price"
                 android:layout_gravity="end"/>
         </FrameLayout>
 

@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textColor="@color/colorSecondary"
-                android:text="Current price"
+                android:text="@string/string_current_price"
                 android:layout_gravity="end"/>
         </FrameLayout>
 

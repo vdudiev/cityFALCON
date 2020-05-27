@@ -1,13 +1,19 @@
 package com.example.cityfalcon;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -57,11 +63,71 @@ public class SearchFragment extends Fragment {
         }
     }
 
+
+
+    ArrayList<Button> scrollSearchButtons = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View root = inflater.inflate(R.layout.fragment_search, container, false);
+        scrollSearchButtons.add(root.findViewById(R.id.button_all__scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_eu_stocks_scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_us_stocks_scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_indices_scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_forex_scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_cryptos_scroll_search_fragment));
+        scrollSearchButtons.add(root.findViewById(R.id.button_etf_s_scroll_search_fragment));
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case  R.id.button_all__scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(0).getText().toString());
+                        break;
+                    case  R.id.button_eu_stocks_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(1).getText().toString());
+                        break;
+                    case  R.id.button_us_stocks_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(2).getText().toString());
+                        break;
+                    case  R.id.button_indices_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(3).getText().toString());
+                        break;
+                    case  R.id.button_forex_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(4).getText().toString());
+                        break;
+                    case  R.id.button_cryptos_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(5).getText().toString());
+                        break;
+                    case  R.id.button_etf_s_scroll_search_fragment:
+                        searchScrollSelector(scrollSearchButtons.get(6).getText().toString());
+                        break;
+                }
+
+            }
+        };
+
+        for (int i=0; i<scrollSearchButtons.size(); i++) {
+            scrollSearchButtons.get(i).setOnClickListener(onClickListener);
+        }
+
+        return root;
     }
 
-}
+    private void searchScrollSelector (String text){
+        for (int i=0; i<scrollSearchButtons.size(); i++) {
+            if (text.equals(scrollSearchButtons.get(i).getText().toString())){
+                scrollSearchButtons.get(i).setBackground(ContextCompat.getDrawable(getContext(), R.drawable.outline_background_selected_search_fragment));
+                scrollSearchButtons.get(i).setTextColor(ContextCompat.getColor(getContext(), R.color.colorWhite));
+            }
+            else {
+                scrollSearchButtons.get(i).setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
+                scrollSearchButtons.get(i).setBackground(ContextCompat.getDrawable(getContext(), R.drawable.outline_background_search_fragment));
+            }
+
+            }
+        }
+    }
+
