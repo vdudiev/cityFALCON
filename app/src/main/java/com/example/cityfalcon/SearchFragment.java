@@ -127,7 +127,6 @@ public class SearchFragment extends Fragment {
                 scrollSearchButtons.get(i).setBackground(ContextCompat.getDrawable(getContext(), R.drawable.outline_background_search_fragment));
             }
 
-            }
         }
     }
-
+}

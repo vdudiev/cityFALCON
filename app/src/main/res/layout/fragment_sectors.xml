@@ -6,11 +6,407 @@
     tools:context=".SectorsFragment"
     android:background="@color/colorWhite">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-            android:text="SECTORS FRAGMENT"
-        android:gravity="center"
-        android:textColor="@color/colorBlack"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_Sectors"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="@string/string_sectors_name"
+                android:layout_gravity="start"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/colorSecondary"
+                android:text="Sell / Buy"
+                android:layout_gravity="end"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:id="@+id/frameLayout_communication_services_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/communication_services" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_consumer_discretionary"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_consumer_discretionary_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/consumer_discretionary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_communication_services"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_consumer_staples_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/consumer_staples" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_consumer_staples"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_energy_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/energy" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_energy"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_financial_services_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/financial_services" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_financial_services"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_general_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/general" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_general"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_healthcare_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/healthcare" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_healthcare"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_industrial_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/industrials" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_industrial"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_materials_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/materials" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_materials"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_real_estate_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/real_estate" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_real_estate"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_technology_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/technology" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_technology"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout_utilities_sectors_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_gray_border"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/utilities" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/string_utilities"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/chevron_right"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"/>
+                </FrameLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -16,15 +16,28 @@
     <string name="sell_price">Sell price</string>
     <string name="string_subscription">Subscription</string>
     <string name="string_terms_amp_conditions"><![CDATA[Terms&Conditions]]></string>
+    <string name="string_sectors_name">Sectors name</string>
+    <string name="string_current_price">Current price</string>
+    <string name="string_communication_services">Communication Services</string>
+    <string name="string_consumer_discretionary">Consumer Discretionary</string>
+    <string name="string_consumer_staples">Consumer Staples</string>
     <string name="string_about">About</string>
-    <string name="string_all">ALL</string>
-    <string name="string_eu_stocks">EU Stocks</string>
-    <string name="string_us_stocks">US Stocks</string>
+    <string name="string_all">All</string>
+    <string name="string_eu_stocks">EU STOCKS</string>
+    <string name="string_us_stocks">US stocks</string>
     <string name="string_indices">Indices</string>
     <string name="string_forex">Forex</string>
     <string name="string_cryptos">Cryptos</string>
-    <string name="string_etf_s">ETF’s</string>
-    <string name="string_current_price">Current price</string>
+    <string name="string_etf_s">ETF\'s</string>
+    <string name="string_financial_services">Financial Services</string>
+    <string name="string_energy">Energy</string>
+    <string name="string_general">General</string>
+    <string name="string_healthcare">Healthcare</string>
+    <string name="string_industrial">Industrial</string>
+    <string name="string_materials">Materials</string>
+    <string name="string_real_estate">Real Estate</string>
+    <string name="string_technology">Technology</string>
+    <string name="string_utilities">Utilities</string>
 
 
 </resources>
