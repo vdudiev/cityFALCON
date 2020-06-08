@@ -48,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.content_fragment,fragmentMore);
                         break;
                 }
+
                 fragmentTransaction.commit();
                 return true;
             }
