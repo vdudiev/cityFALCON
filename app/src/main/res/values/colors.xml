@@ -10,7 +10,8 @@
     <color name="colorLoss">#F44336</color>
     <color name="colorProfit">#4CAF50</color>
     <color name="colorFA">#FAFAFA</color>
-
+    <color name="splash_screen_text_color">#A6BCDF</color>
+    <color name="splash_screen_background">#1B1C1E</color>
 
 
 </resources>

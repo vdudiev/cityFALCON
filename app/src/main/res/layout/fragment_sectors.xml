@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SectorsFragment"
     android:background="@color/colorWhite">
 
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,21 +66,21 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/communication_services" />
+                        android:src="@drawable/communication_services_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="44dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/string_consumer_discretionary"
+                        android:text="@string/string_communication_services"
                         android:textColor="@color/colorBlack"
                         android:textSize="16sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -94,21 +95,21 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/consumer_discretionary" />
+                        android:src="@drawable/consumer_discretionary_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="44dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/string_communication_services"
+                        android:text="@string/string_consumer_discretionary"
                         android:textColor="@color/colorBlack"
                         android:textSize="16sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
 
@@ -124,7 +125,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/consumer_staples" />
+                        android:src="@drawable/consumer_staples_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -138,7 +139,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -153,7 +154,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/energy" />
+                        android:src="@drawable/energy_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -167,7 +168,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -182,7 +183,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/financial_services" />
+                        android:src="@drawable/financial_services_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -196,7 +197,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -211,7 +212,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/general" />
+                        android:src="@drawable/general_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -225,7 +226,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -240,7 +241,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/healthcare" />
+                        android:src="@drawable/healthcare_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -254,7 +255,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -269,7 +270,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/industrials" />
+                        android:src="@drawable/industrials_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -283,7 +284,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -298,7 +299,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/materials" />
+                        android:src="@drawable/materials_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -312,7 +313,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -327,7 +328,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/real_estate" />
+                        android:src="@drawable/real_estate_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -341,7 +342,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -356,7 +357,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/technology" />
+                        android:src="@drawable/technology_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -370,7 +371,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -385,7 +386,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/utilities" />
+                        android:src="@drawable/utilities_sectors_frag" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -399,7 +400,7 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/chevron_right"
+                        android:src="@drawable/right_chevron"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="end"/>
                 </FrameLayout>
@@ -409,4 +410,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</FrameLayout>
