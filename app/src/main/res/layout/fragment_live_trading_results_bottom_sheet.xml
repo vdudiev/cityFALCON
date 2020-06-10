@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_corner_bottom_sheet_white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/string_live_trading_results"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="Find ??? short-term Sell &amp; Buy trading signals for your investment"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/bottom_gray_border">
+
+        <TextView
+            android:id="@+id/textView_tbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:text="@string/string_total_buy_signals"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_below="@+id/textView_tbs"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/string_profit"
+            android:background="@drawable/round_corner_bottom_sheet_text_profit"/>
+
+        <TextView
+            android:id="@+id/textView_total_buy_signals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:text="120"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorProfit"
+            android:textSize="16sp"
+            android:text="+ 75%"
+            android:layout_below="@+id/textView_total_buy_signals"
+            android:layout_alignParentEnd="true"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="16dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/textView_tss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:text="@string/string_total_sell_signals"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_below="@+id/textView_tss"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/string_loss"
+           android:background="@drawable/round_corner_bottom_sheet_text_loss"/>
+
+        <TextView
+            android:id="@+id/textView_total_sell_signals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:text="75"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorProfit"
+            android:textSize="16sp"
+            android:text="- 75%"
+            android:layout_below="@+id/textView_total_sell_signals"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button_go_to_signals_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorWhite"
+        android:paddingStart="80dp"
+        android:paddingEnd="80dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/string_go_to_signals"
+        android:background="@drawable/outline_background_selected_search_fragment"/>
+
+</LinearLayout>

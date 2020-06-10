@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_signal"
-        android:icon="@mipmap/signal_bottom_navigation_view_foreground"
+        android:icon="@drawable/ic_signal_bottom_navigation_view"
         android:title="@string/string_Signal"/>
     <item
         android:id="@+id/nav_watchlist"
-        android:icon="@mipmap/watchlist_bottom_navigation_view_foreground"
+        android:icon="@drawable/ic_watchlist_bottom_navigation_view_foreground"
         android:title="@string/string_Watchlist"/>
     <item
         android:id="@+id/nav_search"
-        android:icon="@mipmap/search_bottom_navigation_view_foreground"
+        android:icon="@drawable/ic_search_bottom_navigation_view_foreground"
         android:title="@string/string_Search"/>
     <item
         android:id="@+id/nav_sectors"
-        android:icon="@mipmap/sectors_bottom_navigation_view_foreground"
+        android:icon="@drawable/ic_sectors_bottom_navigation_view_foreground"
         android:title="@string/string_Sectors"/>
     <item
         android:id="@+id/nav_more"
-        android:icon="@mipmap/more_bottom_navigation_view_foreground"
+        android:icon="@drawable/ic_more_bottom_navigation_view_foreground"
         android:title="@string/string_More"/>
 
 </menu>

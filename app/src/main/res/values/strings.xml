@@ -39,6 +39,17 @@
     <string name="string_technology">Technology</string>
     <string name="string_utilities">Utilities</string>
     <string name="string_tradestockapp_com">TradeStockApp.com</string>
+    <string name="string_1st_part_terms_conditions">Thanks for choosing Spotifi (“Spotify,” “we,” “us,” “our”). Spotify provides personalized services with social and interactive features for streaming music and other content as well as other products and services that may be developed from time to time.</string>
+    <string name="string_spotifi">Spotifi</string>
+    <string name="string_2_part_terms_conditions_">By signing up or otherwise using any of these Spotify services, including all associated features and functionalities, websites and user interfaces, as well as all content and software applications associated with our services (collectively, the “Spotify Service” or “Service”), or accessing any music, videos or other content or material that is made available through the Service (the “Content”) you are entering into a binding contract with Spotify USA Inc. Thanks for choosing Spotify (“Spotify,” “we,” “us,” “our”). Spotify provides personalized services with social and interactive features for streaming music and other content as well as other products and services that may be developed from time to time. By signing up or otherwise using any of these Spotify services, including all associated features and functionalities, websites and user interfaces, as well as all content and software applications associated with our services (collectively, the “Spotify Service” or “Service”), or accessing any music, videos or other content or material that is made available through the Service (the “Content”) you are entering into a binding contract with Spotify USA Inc.</string>
+    <string name="string_i_agree"><![CDATA[I agree with terms&Conditions]]></string>
+    <string name="string_i_dont_agree">I don\'t agree</string>
+    <string name="string_live_trading_results">Live trading results</string>
+    <string name="string_total_buy_signals">Total Buy signals</string>
+    <string name="string_profit">Profit</string>
+    <string name="string_loss">Loss</string>
+    <string name="string_total_sell_signals">Total Sell signals</string>
+    <string name="string_go_to_signals">Go to signals</string>
 
 
 </resources>

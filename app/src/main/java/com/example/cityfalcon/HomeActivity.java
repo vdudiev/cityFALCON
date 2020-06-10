@@ -17,11 +17,17 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        BottomNavigationView navigationView = findViewById(R.id.bottom_navigation);
 
+        TermsConditionsBottomSheet termsConditionsBottomSheet = new TermsConditionsBottomSheet();
+        termsConditionsBottomSheet.show(getSupportFragmentManager(),"termsConditionsBottomSheet");
+
+
+
+        BottomNavigationView navigationView = findViewById(R.id.bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 int id = menuItem.getItemId();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 switch (id) {
