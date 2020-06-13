@@ -4,10 +4,15 @@ package com.example.cityfalcon;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import java.util.zip.Inflater;
 
 
 /**
@@ -60,8 +65,35 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more, container, false);
+        View root = inflater.inflate(R.layout.fragment_more, container, false);
+
+        FrameLayout aboutFrameLayout = root.findViewById(R.id.frameLayout_about_more_fragment);
+        aboutFrameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransactionAbout =((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
+                AboutFragment aboutFragment = new AboutFragment();
+                fragmentTransactionAbout.replace(R.id.content_fragment,aboutFragment);
+                fragmentTransactionAbout.addToBackStack(null);
+                fragmentTransactionAbout.commit();
+
+            }
+        });
+
+        FrameLayout termsCondFrameLayout = root.findViewById(R.id.frameLayout_terms_conditions_more_fragment);
+        termsCondFrameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransactionTermsCond =((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
+                TermsAndConditionsFragment termsAndConditionsFragment = new TermsAndConditionsFragment();
+                fragmentTransactionTermsCond.replace(R.id.content_fragment,termsAndConditionsFragment);
+                fragmentTransactionTermsCond.addToBackStack(null);
+                fragmentTransactionTermsCond.commit();
+
+            }
+        });
+
+        return root;
     }
 
 }

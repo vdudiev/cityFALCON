@@ -129,14 +129,14 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/string_about"
                 android:textColor="@color/colorBlack"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:src="@drawable/right_chevron"
+                android:layout_gravity="end"
                 android:layout_marginTop="5dp"
-                android:layout_gravity="end"/>
+                android:src="@drawable/right_chevron" />
         </FrameLayout>
 
     </LinearLayout>

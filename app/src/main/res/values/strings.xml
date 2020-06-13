@@ -50,6 +50,9 @@
     <string name="string_loss">Loss</string>
     <string name="string_total_sell_signals">Total Sell signals</string>
     <string name="string_go_to_signals">Go to signals</string>
+    <string name="string_version">Version 0.1</string>
+    <string name="string_contact">Contact</string>
+    <string name="string_cell_number">+7(999)724-70-20</string>
 
 
 </resources>
