@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubscriptionFragment"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/textView_subscription_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/string_subscription"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/image_button_back_to_more_frag_from_subscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/colorWhite"/>
+
+    <TextView
+        android:id="@+id/textView_youll_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_button_back_to_more_frag_from_subscription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/after_you_subscribe_you_ll_get_it"/>
+
+    <RelativeLayout
+        android:id="@+id/advantages_subscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_youll_get"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="13dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/blue_circle_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:src="@drawable/ic_blue_circle"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:text="@string/string_2_816_000_premium_icons"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/blue_circle_1"/>
+
+        <ImageView
+            android:id="@+id/blue_circle_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blue_circle_1"
+            android:layout_marginTop="15dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/ic_blue_circle"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/blue_circle_1"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:text="@string/string_no_attribution_required_more_info"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/blue_circle_1"/>
+
+        <ImageView
+            android:id="@+id/blue_circle_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blue_circle_2"
+            android:layout_marginTop="15dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/ic_blue_circle"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/blue_circle_2"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:text="@string/string_unlimited_downloads_more_info"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/blue_circle_1"/>
+
+        <ImageView
+            android:id="@+id/blue_circle_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blue_circle_3"
+            android:layout_marginTop="15dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/ic_blue_circle"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/blue_circle_3"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:text="@string/string_priority_support"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/blue_circle_1"/>
+
+        <ImageView
+            android:id="@+id/blue_circle_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blue_circle_4"
+            android:layout_marginTop="15dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/ic_blue_circle"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/blue_circle_4"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:text="@string/string_no_ads"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/blue_circle_1"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_monthly_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/advantages_subscription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/outline_background_primary_subscription_fragment">
+
+        <TextView
+            android:id="@+id/textView_7_days_free"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="30dp"
+            android:textSize="12sp"
+            android:text="@string/string_7_days_free_trial_period" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_7_days_free"
+            android:layout_marginStart="30dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            android:text="@string/string_monthly_subscription"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textView_7_days_free"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:text="$30"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="21dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_annual_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_monthly_sub"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/outline_background_primary_subscription_fragment">
+
+        <TextView
+            android:id="@+id/textView_7_days_free_annual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="30dp"
+            android:textSize="12sp"
+            android:text="@string/string_7_days_free_trial_period" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_7_days_free_annual"
+            android:layout_marginStart="30dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"
+            android:text="@string/string_annual_subscription"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textView_7_days_free_annual"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:text="$350"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="21dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_annual_sub"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginEnd="7dp"
+        android:layout_toStartOf="@+id/textView_and"
+        android:textSize="16sp"
+        android:text="@string/string_link_1"/>
+
+    <TextView
+        android:id="@+id/textView_and"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/relative_annual_sub"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:text="@string/string_and"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_annual_sub"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_toEndOf="@+id/textView_and"
+        android:textSize="16sp"
+        android:text="@string/string_link_2"/>
+
+
+</RelativeLayout>

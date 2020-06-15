@@ -67,7 +67,7 @@ public class MoreFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_more, container, false);
 
-        FrameLayout aboutFrameLayout = root.findViewById(R.id.frameLayout_about_more_fragment);
+       /* FrameLayout aboutFrameLayout = root.findViewById(R.id.frameLayout_about_more_fragment);
         aboutFrameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +91,44 @@ public class MoreFragment extends Fragment {
                 fragmentTransactionTermsCond.commit();
 
             }
-        });
+        });*/
+        View.OnClickListener openOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction =((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
 
+                switch (v.getId()){
+                    case R.id.frameLayout_about_more_fragment:
+                        AboutFragment aboutFragment = new AboutFragment();
+                        fragmentTransaction.replace(R.id.content_fragment,aboutFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        break;
+
+                    case R.id.frameLayout_terms_conditions_more_fragment:
+                        TermsAndConditionsFragment termsAndConditionsFragment = new TermsAndConditionsFragment();
+                        fragmentTransaction.replace(R.id.content_fragment,termsAndConditionsFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        break;
+
+                    case R.id.frameLayout_subscription_more_fragment:
+                        SubscriptionFragment subscriptionFragment = new SubscriptionFragment();
+                        fragmentTransaction.replace(R.id.content_fragment, subscriptionFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        break;
+                }
+                fragmentTransaction.commit();
+            }
+        };
+
+
+        FrameLayout aboutFrameLayout = root.findViewById(R.id.frameLayout_about_more_fragment);
+        aboutFrameLayout.setOnClickListener(openOnClickListener);
+
+        FrameLayout termsCondFrameLayout = root.findViewById(R.id.frameLayout_terms_conditions_more_fragment);
+        termsCondFrameLayout.setOnClickListener(openOnClickListener);
+
+        FrameLayout subsciptionFrameLayout = root.findViewById(R.id.frameLayout_subscription_more_fragment);
+        subsciptionFrameLayout.setOnClickListener(openOnClickListener);
         return root;
     }
 

@@ -14,6 +14,8 @@
         android:text="@string/string_terms_amp_conditions"
         android:layout_gravity="center"/>
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="230dp"
