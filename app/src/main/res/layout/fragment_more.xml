@@ -129,6 +129,7 @@
             android:background="@drawable/bottom_gray_border"
             android:padding="15dp">
 
+
             <ImageView
                 android:layout_width="27dp"
                 android:layout_height="27dp"
