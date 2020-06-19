@@ -15,6 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:text="@string/string_Sectors"
             android:textColor="@color/colorBlack"
             android:layout_gravity="center"
@@ -27,23 +28,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginTop="10dp">
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorSecondary"
-                android:text="@string/string_sectors_name"
+                android:text="@string/string_sectors_list"
                 android:layout_gravity="start"/>
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorSecondary"
-                android:text="Sell / Buy"
+                android:text="@string/string_sell_buy"
                 android:layout_gravity="end"/>
         </FrameLayout>
 
@@ -64,8 +65,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/communication_services_sectors_frag" />
 
                     <TextView
@@ -75,7 +76,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_communication_services"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -93,8 +94,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/consumer_discretionary_sectors_frag" />
 
                     <TextView
@@ -104,7 +105,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_consumer_discretionary"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -123,8 +124,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/consumer_staples_sectors_frag" />
 
                     <TextView
@@ -134,7 +135,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_consumer_staples"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -152,8 +153,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/energy_sectors_frag" />
 
                     <TextView
@@ -163,7 +164,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_energy"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -181,8 +182,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/financial_services_sectors_frag" />
 
                     <TextView
@@ -192,7 +193,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_financial_services"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -210,8 +211,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/general_sectors_frag" />
 
                     <TextView
@@ -221,7 +222,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_general"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -239,8 +240,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/healthcare_sectors_frag" />
 
                     <TextView
@@ -250,7 +251,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_healthcare"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -268,8 +269,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/industrials_sectors_frag" />
 
                     <TextView
@@ -279,7 +280,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_industrial"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -297,8 +298,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/materials_sectors_frag" />
 
                     <TextView
@@ -308,7 +309,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_materials"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -326,8 +327,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/real_estate_sectors_frag" />
 
                     <TextView
@@ -337,7 +338,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_real_estate"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -355,8 +356,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/technology_sectors_frag" />
 
                     <TextView
@@ -366,7 +367,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_technology"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"
@@ -384,8 +385,8 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:src="@drawable/utilities_sectors_frag" />
 
                     <TextView
@@ -395,7 +396,7 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/string_utilities"
                         android:textColor="@color/colorBlack"
-                        android:textSize="16sp"/>
+                        android:textSize="14sp"/>
 
                     <ImageView
                         android:layout_width="18dp"

@@ -27,21 +27,21 @@
                 android:textStyle="bold"/>
 
             <Button
-                android:layout_width="27dp"
-                android:layout_height="27dp"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
                 android:background="@drawable/filter"
+                android:layout_marginTop="3dp"
                 android:layout_gravity="end" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/text_number_of_short_terms_signal_fragment"
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="Find ??? short-term Sell&amp;Buy trading signals for your investment plan."/>
 
@@ -53,12 +53,12 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_with_shadow"
-            android:padding="15dp">
+            android:padding="11dp">
 
             <Button
                 android:id="@+id/button_search_signal_fragment"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/search"/>
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorFA"
                 android:textColor="@color/colorBlack"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 android:hint="@string/companies_or_symbols"
                 android:textColorHint="@color/colorSecondary"/>
         </LinearLayout>
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:paddingBottom="3dp"
+
             android:background="@drawable/background_with_shadow_for_selector_signals_fragment">
 
             <LinearLayout
@@ -85,12 +85,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@drawable/borser_for_sell_or_buy"
+                android:background="@drawable/bottom_border_for_sell_or_buy"
                 android:paddingBottom="12dp">
 
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="match_parent"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:src="@drawable/sell_picture"
                 />
 
@@ -98,9 +98,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/string_sell"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="17dp"
                 android:textColor="@color/colorBlack"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -112,8 +112,8 @@
                 android:paddingBottom="12dp">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:src="@drawable/buy_picture"
                     tools:ignore="ContentDescription" />
 
@@ -121,9 +121,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/string_buy"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="17dp"
                     android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -137,7 +137,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorSecondary"
                 android:text="@string/symbol_date"
                 android:layout_gravity="start"/>
@@ -145,7 +145,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorSecondary"
                 android:text="@string/sell_price"
                 android:layout_gravity="center"/>
@@ -153,7 +153,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorSecondary"
                 android:text="@string/string_current_price"
                 android:layout_gravity="end"/>

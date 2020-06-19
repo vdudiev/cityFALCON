@@ -10,7 +10,7 @@
         android:id="@+id/textView_subscription_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
         android:gravity="center_horizontal"
         android:text="@string/string_subscription"
         android:textColor="@color/colorBlack"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_button_back_to_more_frag_from_subscription"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:textSize="16sp"
         android:textColor="@color/colorBlack"
         android:text="@string/after_you_subscribe_you_ll_get_it"/>

@@ -1,13 +1,10 @@
 package com.example.cityfalcon;
 
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +37,7 @@ public class SignalFragment extends Fragment {
         sellLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.borser_for_sell_or_buy));
+                sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayout.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.colorWhite));
             }
         });
@@ -48,7 +45,7 @@ public class SignalFragment extends Fragment {
         buyLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.borser_for_sell_or_buy));
+                buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 sellLinearLayout.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.colorWhite));
             }
         });

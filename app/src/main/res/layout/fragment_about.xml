@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="@string/string_contact"
         android:textColor="@color/colorBlack"
-        android:textSize="24sp"
+        android:textSize="19sp"
         android:layout_below="@+id/textView_about_version"
         android:gravity="center_horizontal"
         android:layout_marginTop="80dp"/>

@@ -30,9 +30,20 @@
             android:layout_marginTop="15dp"
             android:padding="15dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/string_7_days_free"
+                android:layout_gravity="end"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="35dp"/>
+
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:src="@drawable/subscription_more_frag" />
 
             <TextView
@@ -42,7 +53,7 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/string_subscription"
                 android:textColor="@color/colorBlack"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
 
             <ImageView
                 android:layout_width="18dp"
@@ -60,8 +71,8 @@
             android:padding="15dp">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:src="@drawable/terms_conditions_more_frag" />
 
             <TextView
@@ -71,7 +82,7 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/string_terms_amp_conditions"
                 android:textColor="@color/colorBlack"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
 
             <ImageView
                 android:layout_width="18dp"
@@ -118,8 +129,8 @@
             android:padding="15dp">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:src="@drawable/about_more_frag" />
 
             <TextView
@@ -129,7 +140,7 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/string_about"
                 android:textColor="@color/colorBlack"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="18dp"
