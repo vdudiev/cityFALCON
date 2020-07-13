@@ -158,6 +158,14 @@
                 android:text="@string/string_current_price"
                 android:layout_gravity="end"/>
         </FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_signals_on_signals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp" />
+
+
 
 
     </LinearLayout>
