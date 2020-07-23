@@ -64,6 +64,7 @@ public class SignalFragment extends Fragment {
                 adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
                 signalsCount += adapter.getItemCount();
                 textViewSignalCount.setText(signalsCount.toString());
+                adapter.setSellBuyChek(0);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -74,8 +75,6 @@ public class SignalFragment extends Fragment {
         });
 
         textViewSignalCount = root.findViewById(R.id.textview_number_of_short_terms_signal_fragment);
-       /* CountOfShortTermTrading countOfShortTermTrading = new CountOfShortTermTrading();
-        textViewSignalCount.setText(countOfShortTermTrading.getCountOfShortTermTrading(getActivity()));*/
 
 
         sellLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +88,7 @@ public class SignalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
 
@@ -111,6 +111,7 @@ public class SignalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        adapter.setSellBuyChek(1);
                         recyclerView.setAdapter(adapter);
                     }
 

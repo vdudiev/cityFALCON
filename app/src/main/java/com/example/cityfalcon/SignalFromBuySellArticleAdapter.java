@@ -38,9 +38,19 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         return new ViewHolder(view);
     }
 
-    @SuppressLint("ResourceAsColor")
-    @Override
+    //signal_id_to_get for SignalDetailsFragment
 
+    //signalSell or signalBuy
+    private Integer SellBuyChek;
+    public Integer getSellBuyChek() {
+        return SellBuyChek;
+    }
+    public void setSellBuyChek(Integer sellBuyChek) {
+        SellBuyChek = sellBuyChek;
+    }
+
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
+    @Override
     public void onBindViewHolder(@NonNull SignalFromBuySellArticleAdapter.ViewHolder holder, int position) {
         SignalFromSignalsBuySellArticle currentArticleData = list.get(position);
        holder.symbol.setText(currentArticleData.getSymbol());
@@ -59,14 +69,15 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         return list.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
 
-        Float signal_id;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        private Float signal_id;
         final TextView symbol;
         final TextView date_time;
         final TextView price;
         final TextView current_price;
         final ImageButton image_button_check;
+
 
         ViewHolder(View view){
             super(view);
@@ -89,9 +100,10 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
             });
 
             view.setOnClickListener(v -> {
-
                 FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
                 SignalDetails signalDetails = new SignalDetails();
+                signalDetails.setSignal_id_to_set(signal_id);
+                signalDetails.setSellBuyCheking(getSellBuyChek());
                 fragmentTransaction.replace(R.id.content_fragment, signalDetails);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -99,5 +111,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
             });
         }
     }
+
+
 
 }

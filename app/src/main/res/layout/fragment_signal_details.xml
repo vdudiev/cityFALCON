@@ -19,7 +19,6 @@
                 android:id="@+id/textView_signals_details_symbol_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bankia S.A."
                 android:textColor="@color/colorBlack"
                 android:layout_gravity="center"
                 android:textSize="20sp"
@@ -119,7 +118,6 @@
                 android:id="@+id/textView_signal_symbol_on_signals_details_mid"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Bankia S.A. / BKIA"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
@@ -140,8 +138,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:textSize="14sp"
-                android:text="1.7790"/>
+                android:textSize="14sp" />
 
 
 
@@ -151,7 +148,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp"
-                android:text="+1.15%"
                 android:gravity="end"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="20dp"
@@ -164,7 +160,7 @@
                 android:layout_alignParentEnd="true"
                 android:textSize="14sp"
                 android:gravity="end"
-                android:text="1.5380"/>
+                android:text="?"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -188,7 +184,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="65dp"
-                android:text="Communications"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp" />
         </RelativeLayout>
