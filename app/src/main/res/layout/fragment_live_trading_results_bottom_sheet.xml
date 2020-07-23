@@ -52,7 +52,6 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:textColor="@color/colorBlack"
-            android:text="120"
             android:layout_alignParentEnd="true"/>
 
         <TextView
@@ -105,7 +104,6 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:textColor="@color/colorBlack"
-            android:text="75"
             android:layout_alignParentEnd="true"/>
 
         <TextView

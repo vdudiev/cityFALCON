@@ -9,7 +9,6 @@
     android:layout_marginTop="15dp">
 
     <RelativeLayout
-        android:id="@+id/linearLayout_row_good_offers"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -41,19 +40,22 @@
             android:textSize="14sp"
             android:text="1.7790"/>
 
-        <ImageView
-            android:id="@+id/signals_watchlist_add_checked"
+        <ImageButton
+            android:id="@+id/image_button_signals_watchlist_add_checked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:src="@drawable/ic_plus"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="27dp"/>
+
+
         <TextView
             android:id="@+id/textView_signal_current_price_on_signals"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/signals_watchlist_add_checked"
+            android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             android:layout_marginEnd="27dp"
@@ -65,7 +67,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/signals_watchlist_add_checked"
+            android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             android:layout_marginEnd="27dp"

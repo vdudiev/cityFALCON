@@ -68,6 +68,11 @@
     <string name="string_sell_buy">Sell / Buy</string>
     <string name="string_enjoy_short_term_investing">Enjoy short-term investing</string>
     <string name="string_7_days_free">7 days free</string>
+    <string name="string_sector">Sector</string>
+    <string name="string_add_to_watchlist">Add to watchlist</string>
+    <string name="string_detailed_information">Detailed information</string>
+    <string name="string_stop_loss">STOP LOSS</string>
+    <string name="string_take_profit">TAKE PROFIT</string>
 
 
 </resources>

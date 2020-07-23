@@ -1,67 +1,101 @@
 package com.example.cityfalcon;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link WatchlistFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class WatchlistFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
 
     public WatchlistFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WatchlistFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static WatchlistFragment newInstance(String param1, String param2) {
-        WatchlistFragment fragment = new WatchlistFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private Retrofit retrofit;
+    private RegistrationResponse registrationResponse = new RegistrationResponse();
+    private RecyclerView recyclerView;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watchlist, container, false);
+        View root = inflater.inflate(R.layout.fragment_watchlist, container, false);
+
+        Context context = getActivity();
+        LinearLayout sellLinearLayoutWatchList = root.findViewById(R.id.LinearLayout_sell_watchlist_fragment);
+        LinearLayout buyLinearLayoutWatchLis = root.findViewById(R.id.LinearLayout_buy_watchlist_fragment);
+        recyclerView = root.findViewById(R.id.recyclerview_signals_on_watchlist);
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://msofter.com/tradestocks2/public/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+        sellLinearLayoutWatchList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
+                buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
+
+                ApiService apiService = retrofit.create(ApiService.class);
+                apiService.getWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                    @Override
+                    public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<SignalsArticle> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
+        buyLinearLayoutWatchLis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
+                sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
+
+
+                ApiService apiService = retrofit.create(ApiService.class);
+                apiService.getWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                    @Override
+                    public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                        recyclerView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<SignalsArticle> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
+
+        return root;
+
     }
 
 }

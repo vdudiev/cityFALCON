@@ -34,16 +34,41 @@
                 android:layout_gravity="end" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/text_number_of_short_terms_signal_fragment"
-            android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:text="Find ??? short-term Sell&amp;Buy trading signals for your investment plan."/>
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/textview_find"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:gravity="start"
+                android:text="Find  "/>
+
+                <TextView
+                    android:id="@+id/textview_number_of_short_terms_signal_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@+id/textview_find" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/textview_number_of_short_terms_signal_fragment"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="short-term Sell&amp;Buy trading signals for your investment plan."/>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,9 +100,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-
-            android:background="@drawable/background_with_shadow_for_selector_signals_fragment">
+            android:layout_marginTop="15dp">
 
             <LinearLayout
                 android:id="@+id/LinearLayout_sell_signal_fragment"
@@ -109,6 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="@drawable/background_with_shadow_for_selector_signals_fragment"
                 android:paddingBottom="12dp">
 
                 <ImageView
@@ -158,15 +182,13 @@
                 android:text="@string/string_current_price"
                 android:layout_gravity="end"/>
         </FrameLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_signals_on_signals"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:layout_marginStart="20dp" />
-
-
-
 
     </LinearLayout>
 
