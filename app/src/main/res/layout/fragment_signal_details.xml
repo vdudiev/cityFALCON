@@ -127,7 +127,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@color/colorSecondary"
-                android:text="22.01.2020 08:20"
                 android:layout_marginBottom="20dp"
                 android:layout_alignParentBottom="true"/>
 

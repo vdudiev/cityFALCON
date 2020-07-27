@@ -54,15 +54,14 @@ public class SignalDetails extends Fragment {
         RegistrationResponse registrationResponse = new RegistrationResponse();
 
         RetrofitCreate retrofitCreate = new RetrofitCreate();
-        Retrofit retrofit = retrofitCreate.getRetrofit();
 
-        ApiService apiService = retrofit.create(ApiService.class);
+        ApiService apiService = retrofitCreate.getRetrofit().create(ApiService.class);
         Float signal_id = signal_id_to_set;
         String lang = "en";
         apiService.GetMoreAboutSignal(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 signal_id, lang).enqueue(new Callback<SignalsMoreArticle>() {
-            @SuppressLint("SetTextI18n")
+            @SuppressLint({"SetTextI18n", "ResourceAsColor"})
             @Override
             public void onResponse(Call<SignalsMoreArticle> call, Response<SignalsMoreArticle> response) {
                 SignalsMoreArticle signalsMoreArticle = response.body();
@@ -77,6 +76,12 @@ public class SignalDetails extends Fragment {
                     signal_price_on_signals_details.setText(signalsMoreArticle.getSignal().getBuy_price().toString());
                 }
                 signal_current_price_on_signals_details.setText(signalsMoreArticle.getSignal().getCurrent_price().toString()+"%");
+
+                if (signalsMoreArticle.getSignal().getCurrent_price()> 0) {
+                    signal_current_price_on_signals_details.setTextColor(R.color.colorProfit);
+                }
+
+                else {signal_current_price_on_signals_details.setTextColor(R.color.colorLoss);}
 
                 sector_title_signals_details.setText(signalsMoreArticle.getSignal().getSector_title());
 

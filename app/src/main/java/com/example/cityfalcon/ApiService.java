@@ -20,11 +20,11 @@ public interface ApiService {
 
     //watch list
     @POST("watchlist-get")
-    Call<SignalsArticle> getWatchList(@Header("Accept") String accept,
+    Call<SignalsArticle> GetWatchList(@Header("Accept") String accept,
                                       @Header("Authorization") String authorization);
 
     @POST("watchlist-delete")
-    Call<SignalsArticle> deleteSignalFromWatchList (@Header("Accept") String accept,
+    Call<SignalsArticle> DeleteSignalFromWatchList (@Header("Accept") String accept,
                                                     @Header("Authorization") String authorization,
                                                     @Field("signal_id") Float signal_id);
 
@@ -32,6 +32,18 @@ public interface ApiService {
     void addSignalToWatchList (@Header("Accept") String accept,
                                                @Header("Authorization") String authorization,
                                                @Field("signal_id") Float signal_id);
+
+    @POST("search")
+    Call<SignalsArticle> GetSignalsFromSearch(@Header("Accept") String accept,
+                                                 @Header("Authorization") String authorization,
+                                                 @Field("search") String search,
+                                                 @Field("instrument") Float instrument);
+
+    @POST("instrument")
+    Call<InstrumentArticle> GetInstrumentId(@Header("Accept") String accept,
+                                            @Header("Authorization") String authorization,
+                                            @Field("instrument") String instrument);
+
 
 
 }

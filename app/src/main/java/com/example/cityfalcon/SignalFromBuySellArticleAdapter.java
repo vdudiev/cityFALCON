@@ -56,8 +56,8 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
        holder.symbol.setText(currentArticleData.getSymbol());
        holder.date_time.setText(currentArticleData.getDate_time());
        holder.price.setText(currentArticleData.getPrice().toString());
-       holder.current_price.setText(currentArticleData.getCurrent_price().toString());
-        if (currentArticleData.getCurrent_price()> 1){ holder.current_price.setTextColor(R.color.colorLoss); }
+       holder.current_price.setText(currentArticleData.getCurrent_price().toString()+"%");
+        if (currentArticleData.getCurrent_price()> 0){ holder.current_price.setTextColor(R.color.colorLoss); }
         else {holder.current_price.setTextColor(R.color.colorProfit);}
         holder.signal_id = currentArticleData.getId();
 
