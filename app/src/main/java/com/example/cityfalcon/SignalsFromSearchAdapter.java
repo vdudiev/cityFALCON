@@ -2,14 +2,12 @@ package com.example.cityfalcon;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,21 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<SignalFromBuySellArticleAdapter.ViewHolder> {
-    Retrofit retrofit;
-    RetrofitCreate retrofitCreate = new RetrofitCreate();
-    LayoutInflater inflater;
+public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSearchAdapter.ViewHolder> {
 
+    LayoutInflater inflater;
     private List<SignalFromSignalsBuySellArticle> list;
     private Context cont;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
-    SignalFromBuySellArticleAdapter(List<SignalFromSignalsBuySellArticle> list, Context context) {
+    SignalsFromSearchAdapter(List<SignalFromSignalsBuySellArticle> list, Context context) {
         this.list = list;
         this.inflater = LayoutInflater.from(context);
         cont = context;
@@ -39,7 +32,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
     @NonNull
     @Override
-    public SignalFromBuySellArticleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SignalsFromSearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.recycler_signals_onsignals,parent,false);
 
         return new ViewHolder(view);
@@ -55,11 +48,10 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     public void setSellBuyChek(Integer sellBuyChek) {
         SellBuyChek = sellBuyChek;
     }
-    private Integer check;
 
     @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SignalsFromSearchAdapter.ViewHolder holder, int position) {
         SignalFromSignalsBuySellArticle currentArticleData = list.get(position);
        holder.symbol.setText(currentArticleData.getSymbol());
        holder.date_time.setText(currentArticleData.getDate_time());
@@ -68,29 +60,6 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         if (currentArticleData.getCurrent_price()> 0){ holder.current_price.setTextColor(R.color.colorLoss); }
         else {holder.current_price.setTextColor(R.color.colorProfit);}
         holder.signal_id = currentArticleData.getId();
-
-        //проверка сигнала на принадлежность к watchlist
-
-        retrofit = retrofitCreate.getRetrofit();
-
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.CheckSignalWatchList(registrationResponse.getAccept(),
-                                        registrationResponse.getAuthorization(),
-                                        holder.signal_id).enqueue(new Callback<Integer>() {
-            @Override
-            public void onResponse(Call<Integer> call, Response<Integer> response) {
-                check = response.body();
-                if (check == 1) {
-                    holder.image_button_check.setImageResource(R.drawable.ic_ok);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Integer> call, Throwable t) {
-
-            }
-        });
-
 
 
     }
@@ -112,7 +81,10 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
         ViewHolder(View view){
             super(view);
+            Retrofit retrofit;
+            RetrofitCreate retrofitCreate = new RetrofitCreate();
             retrofit = retrofitCreate.getRetrofit();
+
             //more information about signal
 
 
@@ -124,19 +96,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
             image_button_check.setOnClickListener(v -> {
                 ApiService apiService = retrofit.create(ApiService.class);
-                apiService.addSignalToWatchList(registrationResponse.getAccept(),
-                                                registrationResponse.getAuthorization(),
-                                                signal_id).enqueue(new Callback<AddedAndDeletedSignalIdArticle>() {
-                    @Override
-                    public void onResponse(Call<AddedAndDeletedSignalIdArticle> call, Response<AddedAndDeletedSignalIdArticle> response) {
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<AddedAndDeletedSignalIdArticle> call, Throwable t) {
-
-                    }
-                });
+                apiService.addSignalToWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization(), signal_id);
             });
 
             view.setOnClickListener(v -> {

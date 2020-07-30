@@ -35,8 +35,8 @@ public class SignalFragment extends Fragment {
     private Retrofit retrofit;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
-    private Integer signalsCount = 0;
-    TextView textViewSignalCount;
+    private Integer signalsCount;
+    private TextView textViewSignalCount;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,8 +54,11 @@ public class SignalFragment extends Fragment {
       RetrofitCreate retrofitCreate = new RetrofitCreate();
       retrofit = retrofitCreate.getRetrofit();
         //first sell signals
+        signalsCount = 0;
         ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetSignalsBuySell(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+        apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                                     registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {

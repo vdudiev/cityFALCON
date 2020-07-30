@@ -34,8 +34,8 @@ public class TermsConditionsBottomSheet extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
-                LiveTradingResultsBottomSheet liveTradingResultsBottomSheet  = new LiveTradingResultsBottomSheet();
-                liveTradingResultsBottomSheet.show(getFragmentManager(),"liveTradingResultsBottomSheet");
+               /* LiveTradingResultsBottomSheet liveTradingResultsBottomSheet  = new LiveTradingResultsBottomSheet();
+                liveTradingResultsBottomSheet.show(getFragmentManager(),"liveTradingResultsBottomSheet");*/
 
             }
         });

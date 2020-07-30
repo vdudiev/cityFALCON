@@ -11,6 +11,7 @@ public interface ApiService {
     @POST("signals")
     Call<SignalsArticle> GetSignalsBuySell (@Header("Accept") String accept,
                                             @Header("Authorization") String authorization);
+
     @FormUrlEncoded
     @POST("signal")
     Call<SignalsMoreArticle> GetMoreAboutSignal (@Header("Accept") String accept,
@@ -20,29 +21,39 @@ public interface ApiService {
 
     //watch list
     @POST("watchlist-get")
-    Call<SignalsArticle> GetWatchList(@Header("Accept") String accept,
-                                      @Header("Authorization") String authorization);
+    Call<SignalsArticle> GetWatchList   (@Header("Accept") String accept,
+                                         @Header("Authorization") String authorization);
 
+    @FormUrlEncoded
     @POST("watchlist-delete")
-    Call<SignalsArticle> DeleteSignalFromWatchList (@Header("Accept") String accept,
+    Call<AddedAndDeletedSignalIdArticle> DeleteSignalFromWatchList (@Header("Accept") String accept,
                                                     @Header("Authorization") String authorization,
                                                     @Field("signal_id") Float signal_id);
 
+    @FormUrlEncoded
     @POST("watchlist-add")
-    void addSignalToWatchList (@Header("Accept") String accept,
-                                               @Header("Authorization") String authorization,
-                                               @Field("signal_id") Float signal_id);
+    Call<AddedAndDeletedSignalIdArticle> addSignalToWatchList (@Header("Accept") String accept,
+                               @Header("Authorization") String authorization,
+                               @Field("signal_id") Float signal_id);
 
+    @FormUrlEncoded
     @POST("search")
-    Call<SignalsArticle> GetSignalsFromSearch(@Header("Accept") String accept,
+    Call<SignalsBuySellArticle> GetSignalsFromSearch(@Header("Accept") String accept,
                                                  @Header("Authorization") String authorization,
                                                  @Field("search") String search,
-                                                 @Field("instrument") Float instrument);
+                                                 @Field("instrument") String instrument);
 
+    @FormUrlEncoded
     @POST("instrument")
     Call<InstrumentArticle> GetInstrumentId(@Header("Accept") String accept,
                                             @Header("Authorization") String authorization,
                                             @Field("instrument") String instrument);
+
+    @FormUrlEncoded
+    @POST("watchlist-exists")
+    Call<Integer> CheckSignalWatchList(@Header("Accept") String accept,
+                                       @Header("Authorization") String authorization,
+                                       @Field("signal_id") Float signal_id);
 
 
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -24,9 +25,8 @@ import retrofit2.Response;
 public class SearchFragment extends Fragment {
 
 
-    private Float instrumentId;
     private  String instrument;
-    private String search;
+    private String search = "";
     private Context context;
 
     private ArrayList<Button> scrollSearchButtons = new ArrayList<>();
@@ -46,9 +46,13 @@ public class SearchFragment extends Fragment {
         scrollSearchButtons.add(root.findViewById(R.id.button_cryptos_scroll_search_fragment));
         scrollSearchButtons.add(root.findViewById(R.id.button_etf_s_scroll_search_fragment));
 
+        context = getActivity();
+
         RegistrationResponse registrationResponse = new RegistrationResponse();
         RetrofitCreate retrofitCreate = new RetrofitCreate();
+
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_signals_on_search);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ApiService apiService = retrofitCreate.getRetrofit().create(ApiService.class);
 
         View.OnClickListener onClickListener = v -> {
@@ -83,34 +87,21 @@ public class SearchFragment extends Fragment {
                     break;
             }
 
-            //получить id иснтрумента
-            apiService.GetInstrumentId(registrationResponse.getAccept(), registrationResponse.getAuthorization(), instrument).enqueue(new Callback<InstrumentArticle>() {
-                @Override
-                public void onResponse(Call<InstrumentArticle> call, Response<InstrumentArticle> response) {
-                    InstrumentArticle instrumentArticle = response.body();
-                    instrumentId = instrumentArticle.getInstrument_id();
-                }
-
-                @Override
-                public void onFailure(Call<InstrumentArticle> call, Throwable t) {
-
-                }
-            });
 
             //вызвать сигналы
             apiService.GetSignalsFromSearch(registrationResponse.getAccept(),
                     registrationResponse.getAuthorization(),
                     search,
-                    instrumentId).enqueue(new Callback<SignalsArticle>() {
+                    instrument).enqueue(new Callback<SignalsBuySellArticle>() {
                 @Override
-                public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                    SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(), context);
+                public void onResponse(Call<SignalsBuySellArticle> call, Response<SignalsBuySellArticle> response) {
+                    SignalsFromSearchAdapter adapter = new SignalsFromSearchAdapter(response.body().getList(), context);
                     adapter.setSellBuyChek(1);
                     recyclerView.setAdapter(adapter);
                 }
 
                 @Override
-                public void onFailure(Call<SignalsArticle> call, Throwable t) {
+                public void onFailure(Call<SignalsBuySellArticle> call, Throwable t) {
 
                 }
             });

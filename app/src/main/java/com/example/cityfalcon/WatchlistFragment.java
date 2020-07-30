@@ -1,16 +1,19 @@
 package com.example.cityfalcon;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EdgeEffect;
 import android.widget.LinearLayout;
 
 import retrofit2.Call;
@@ -42,12 +45,29 @@ public class WatchlistFragment extends Fragment {
         LinearLayout sellLinearLayoutWatchList = root.findViewById(R.id.LinearLayout_sell_watchlist_fragment);
         LinearLayout buyLinearLayoutWatchLis = root.findViewById(R.id.LinearLayout_buy_watchlist_fragment);
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_watchlist);
-        retrofit = new Retrofit.Builder()
-                .baseUrl("http://msofter.com/tradestocks2/public/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        RetrofitCreate retrofitCreate = new RetrofitCreate();
+        retrofit = retrofitCreate.getRetrofit();
 
+        //first sell signals
+        ApiService apiService = retrofit.create(ApiService.class);
+        apiService.GetWatchList(registrationResponse.getAccept(),
+                                registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+
+            @Override
+            public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
+                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                adapter.setSellBuyChek(0);
+                recyclerView.setAdapter(adapter);
+            }
+            @Override
+            public void onFailure(Call<SignalsArticle> call, Throwable t) {
+
+            }
+        });
+
+        //BUTTONS SELL AND BUY
         sellLinearLayoutWatchList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,12 +76,14 @@ public class WatchlistFragment extends Fragment {
 
                 ApiService apiService = retrofit.create(ApiService.class);
                 apiService.GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
-
                     @Override
                     public void onFailure(Call<SignalsArticle> call, Throwable t) {
 
@@ -79,12 +101,13 @@ public class WatchlistFragment extends Fragment {
 
                 ApiService apiService = retrofit.create(ApiService.class);
                 apiService.GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
-
                     @Override
                     public void onFailure(Call<SignalsArticle> call, Throwable t) {
 
