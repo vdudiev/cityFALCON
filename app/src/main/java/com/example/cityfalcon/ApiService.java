@@ -8,9 +8,12 @@ import retrofit2.http.POST;
 
 public interface ApiService {
     //signals on signals
+    @FormUrlEncoded
     @POST("signals")
     Call<SignalsArticle> GetSignalsBuySell (@Header("Accept") String accept,
-                                            @Header("Authorization") String authorization);
+                                            @Header("Authorization") String authorization,
+                                            @Field("filters") String filters,
+                                            @Field("lang") String Lang);
 
     @FormUrlEncoded
     @POST("signal")

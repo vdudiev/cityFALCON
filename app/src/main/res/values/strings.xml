@@ -23,8 +23,8 @@
     <string name="string_consumer_staples">Consumer Staples</string>
     <string name="string_about">About</string>
     <string name="string_all">All</string>
-    <string name="string_eu_stocks">EU STOCKS</string>
-    <string name="string_us_stocks">US stocks</string>
+    <string name="string_eu_stocks">EU Stocks</string>
+    <string name="string_us_stocks">US Stocks</string>
     <string name="string_indices">Indices</string>
     <string name="string_forex">Forex</string>
     <string name="string_cryptos">Cryptos</string>
@@ -73,6 +73,8 @@
     <string name="string_detailed_information">Detailed information</string>
     <string name="string_stop_loss">STOP LOSS</string>
     <string name="string_take_profit">TAKE PROFIT</string>
+    <string name="string_filter">Filter</string>
+    <string name="string_apply">Apply</string>
 
 
 </resources>

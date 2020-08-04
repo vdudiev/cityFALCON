@@ -45,7 +45,10 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
         RetrofitCreate retrofitCreate = new RetrofitCreate();
         retrofit = retrofitCreate.getRetrofit();
         ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetSignalsBuySell(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+        apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                registrationResponse.getAuthorization(),
+                "",
+                registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {

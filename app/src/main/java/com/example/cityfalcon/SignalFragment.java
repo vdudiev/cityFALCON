@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,11 +38,20 @@ public class SignalFragment extends Fragment {
     private RecyclerView recyclerView;
     private Integer signalsCount;
     private TextView textViewSignalCount;
+    private String filters = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_signal, container, false);
 
+        Button buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
+        buttonOnSignalFragmentToGetFilters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FiltersForSignlsBottomSheet filtersForSignlsBottomSheet = new FiltersForSignlsBottomSheet();
+                filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
+            }
+        });
 
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_signals);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -57,7 +67,9 @@ public class SignalFragment extends Fragment {
         signalsCount = 0;
         ApiService apiService = retrofit.create(ApiService.class);
         apiService.GetSignalsBuySell(registrationResponse.getAccept(),
-                                     registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                registrationResponse.getAuthorization(),
+                filters,
+                registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
 
             @SuppressLint("SetTextI18n")
             @Override
@@ -87,7 +99,10 @@ public class SignalFragment extends Fragment {
                 buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
                 ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetSignalsBuySell(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                        registrationResponse.getAuthorization(),
+                        filters,
+                        registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
@@ -110,7 +125,10 @@ public class SignalFragment extends Fragment {
                 sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
                 ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetSignalsBuySell(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                        registrationResponse.getAuthorization(),
+                        filters,
+                        registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);

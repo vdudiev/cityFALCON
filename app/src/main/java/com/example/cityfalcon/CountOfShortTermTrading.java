@@ -13,13 +13,15 @@ class CountOfShortTermTrading {
     private RetrofitCreate retrofitCreate = new RetrofitCreate();
     private Integer signalsCount = 0;
 
-    String getCountOfShortTermTrading(Context context) {
+    /*String getCountOfShortTermTrading(Context context) {
 
         Retrofit retrofit = retrofitCreate.getRetrofit();
         //first sell signals
         ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetSignalsBuySell(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
-
+        apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                registrationResponse.getAuthorization(),
+                filters,
+                registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                 SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
@@ -35,5 +37,5 @@ class CountOfShortTermTrading {
         });
 
         return signalsCount.toString();
-    }
+    }*/
 }

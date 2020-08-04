@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/textView_signal_symbol_on_signals"
-            android:layout_width="130dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bankia S.A. / BKIA"
             android:textColor="@color/colorBlack"
@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/textView_signal_date_time_on_signals"
-            android:layout_width="130dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textColor="@color/colorSecondary"
@@ -53,7 +53,7 @@
 
         <TextView
             android:id="@+id/textView_signal_current_price_on_signals"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:textColor="@color/colorBlack"
@@ -65,7 +65,7 @@
             android:layout_alignParentBottom="true"/>
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:textColor="@color/colorBlack"
