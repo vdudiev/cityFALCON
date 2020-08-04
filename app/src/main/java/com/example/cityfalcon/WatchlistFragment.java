@@ -30,7 +30,6 @@ public class WatchlistFragment extends Fragment {
 
     }
 
-    private Retrofit retrofit;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
 
@@ -47,12 +46,9 @@ public class WatchlistFragment extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_watchlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        RetrofitCreate retrofitCreate = new RetrofitCreate();
-        retrofit = retrofitCreate.getRetrofit();
 
         //first sell signals
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetWatchList(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
                                 registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
 
             @Override
@@ -74,8 +70,7 @@ public class WatchlistFragment extends Fragment {
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
 
                     @SuppressLint("SetTextI18n")
                     @Override
@@ -99,8 +94,7 @@ public class WatchlistFragment extends Fragment {
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
 
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {

@@ -81,9 +81,6 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
 
         ViewHolder(View view){
             super(view);
-            Retrofit retrofit;
-            RetrofitCreate retrofitCreate = new RetrofitCreate();
-            retrofit = retrofitCreate.getRetrofit();
 
             //more information about signal
 
@@ -95,8 +92,7 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
             image_button_check = view.findViewById(R.id.image_button_signals_watchlist_add_checked);
 
             image_button_check.setOnClickListener(v -> {
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.addSignalToWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization(), signal_id);
+                RetrofitCreate.getRetrofit().addSignalToWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization(), signal_id);
             });
 
             view.setOnClickListener(v -> {

@@ -57,6 +57,9 @@ public interface ApiService {
     Call<Integer> CheckSignalWatchList(@Header("Accept") String accept,
                                        @Header("Authorization") String authorization,
                                        @Field("signal_id") Float signal_id);
+//
+//    @FormUrlEncoded
+//    @POST("sectors")
 
 
 

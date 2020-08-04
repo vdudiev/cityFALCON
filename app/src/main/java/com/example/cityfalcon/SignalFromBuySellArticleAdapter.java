@@ -23,8 +23,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<SignalFromBuySellArticleAdapter.ViewHolder> {
-    Retrofit retrofit;
-    RetrofitCreate retrofitCreate = new RetrofitCreate();
     LayoutInflater inflater;
 
     private List<SignalFromSignalsBuySellArticle> list;
@@ -71,10 +69,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
         //проверка сигнала на принадлежность к watchlist
 
-        retrofit = retrofitCreate.getRetrofit();
-
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.CheckSignalWatchList(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().CheckSignalWatchList(registrationResponse.getAccept(),
                                         registrationResponse.getAuthorization(),
                                         holder.signal_id).enqueue(new Callback<Integer>() {
             @Override
@@ -112,7 +107,6 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
         ViewHolder(View view){
             super(view);
-            retrofit = retrofitCreate.getRetrofit();
             //more information about signal
 
 
@@ -123,8 +117,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
             image_button_check = view.findViewById(R.id.image_button_signals_watchlist_add_checked);
 
             image_button_check.setOnClickListener(v -> {
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.addSignalToWatchList(registrationResponse.getAccept(),
+                RetrofitCreate.getRetrofit().addSignalToWatchList(registrationResponse.getAccept(),
                                                 registrationResponse.getAuthorization(),
                                                 signal_id).enqueue(new Callback<AddedAndDeletedSignalIdArticle>() {
                     @Override

@@ -53,12 +53,10 @@ public class SignalDetails extends Fragment {
 
         RegistrationResponse registrationResponse = new RegistrationResponse();
 
-        RetrofitCreate retrofitCreate = new RetrofitCreate();
 
-        ApiService apiService = retrofitCreate.getRetrofit().create(ApiService.class);
         Float signal_id = signal_id_to_set;
         String lang = "en";
-        apiService.GetMoreAboutSignal(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetMoreAboutSignal(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 signal_id, lang).enqueue(new Callback<SignalsMoreArticle>() {
             @SuppressLint({"SetTextI18n", "ResourceAsColor"})

@@ -27,8 +27,6 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
 
     private String filtersId;
 
-    private RetrofitCreate retrofitCreate = new RetrofitCreate();
-    private Retrofit retrofit;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
     @Nullable
@@ -36,7 +34,6 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.bottom_sheet_filters_for_signals, container, false);
 
-        retrofit = retrofitCreate.getRetrofit();
 
         AddButtonsAndImagesInLists(root.findViewById(R.id.textView_filters_0), root.findViewById(R.id.image_filters_0));
         AddButtonsAndImagesInLists(root.findViewById(R.id.textView_filters_1), root.findViewById(R.id.image_filters_1));
@@ -80,8 +77,7 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
     //получить id инструмента
     private Float instrumentId;
     private Float GetInstrumentId (String filterOrInstrumentTitle){
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetInstrumentId(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetInstrumentId(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 filterOrInstrumentTitle).enqueue(new Callback<InstrumentArticle>() {
             @Override

@@ -61,12 +61,9 @@ public class SignalFragment extends Fragment {
         LinearLayout buyLinearLayout = root.findViewById(R.id.LinearLayout_buy_signal_fragment);
 
 
-      RetrofitCreate retrofitCreate = new RetrofitCreate();
-      retrofit = retrofitCreate.getRetrofit();
         //first sell signals
         signalsCount = 0;
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 filters,
                 registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {

@@ -49,11 +49,9 @@ public class SearchFragment extends Fragment {
         context = getActivity();
 
         RegistrationResponse registrationResponse = new RegistrationResponse();
-        RetrofitCreate retrofitCreate = new RetrofitCreate();
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_signals_on_search);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        ApiService apiService = retrofitCreate.getRetrofit().create(ApiService.class);
 
         View.OnClickListener onClickListener = v -> {
             switch (v.getId()) {
@@ -89,7 +87,7 @@ public class SearchFragment extends Fragment {
 
 
             //вызвать сигналы
-            apiService.GetSignalsFromSearch(registrationResponse.getAccept(),
+            RetrofitCreate.getRetrofit().GetSignalsFromSearch(registrationResponse.getAccept(),
                     registrationResponse.getAuthorization(),
                     search,
                     instrument).enqueue(new Callback<SignalsBuySellArticle>() {

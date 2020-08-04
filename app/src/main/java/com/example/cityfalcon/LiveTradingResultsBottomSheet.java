@@ -19,7 +19,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
-    Retrofit retrofit;
     RegistrationResponse registrationResponse;
     Integer buyCount;
     Integer sellCount;
@@ -42,10 +41,7 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
         total_sell_signals = root.findViewById(R.id.textView_total_sell_signals);
         registrationResponse = new RegistrationResponse();
 
-        RetrofitCreate retrofitCreate = new RetrofitCreate();
-        retrofit = retrofitCreate.getRetrofit();
-        ApiService apiService = retrofit.create(ApiService.class);
-        apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 "",
                 registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
