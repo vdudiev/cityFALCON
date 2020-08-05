@@ -38,7 +38,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     @NonNull
     @Override
     public SignalFromBuySellArticleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycler_signals_onsignals,parent,false);
+        View view = inflater.inflate(R.layout.recycler_signals_on_signals,parent,false);
 
         return new ViewHolder(view);
     }
@@ -74,10 +74,11 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
                                         holder.signal_id).enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
-                check = response.body();
+                check = response.body() ;
                 if (check == 1) {
                     holder.image_button_check.setImageResource(R.drawable.ic_ok);
                 }
+                else { holder.image_button_check.setImageResource(R.drawable.ic_plus); }
             }
 
             @Override

@@ -33,7 +33,7 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
     @NonNull
     @Override
     public SignalsFromSearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycler_signals_onsignals,parent,false);
+        View view = inflater.inflate(R.layout.recycler_signals_on_signals,parent,false);
 
         return new ViewHolder(view);
     }

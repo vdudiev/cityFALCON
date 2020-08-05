@@ -9,7 +9,7 @@ import retrofit2.http.POST;
 public interface ApiService {
     //signals on signals
     @FormUrlEncoded
-    @POST("signals")
+    @POST("signals2")
     Call<SignalsArticle> GetSignalsBuySell (@Header("Accept") String accept,
                                             @Header("Authorization") String authorization,
                                             @Field("filters") String filters,
@@ -26,6 +26,10 @@ public interface ApiService {
     @POST("watchlist-get")
     Call<SignalsArticle> GetWatchList   (@Header("Accept") String accept,
                                          @Header("Authorization") String authorization);
+
+    @POST("sectors")
+    Call<SectorsArticle> GetSectors (@Header("Accept") String accept,
+                                     @Header("Authorization") String authorization);
 
     @FormUrlEncoded
     @POST("watchlist-delete")
@@ -57,9 +61,7 @@ public interface ApiService {
     Call<Integer> CheckSignalWatchList(@Header("Accept") String accept,
                                        @Header("Authorization") String authorization,
                                        @Field("signal_id") Float signal_id);
-//
-//    @FormUrlEncoded
-//    @POST("sectors")
+
 
 
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_gray_border">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:paddingEnd="28dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/image_for_sector_on_sectors"
+            android:layout_width="32dp"
+            android:layout_height="33dp"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:id="@+id/textView_sector_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorBlack"
+            android:text="Example Text"
+            android:layout_toEndOf="@+id/image_for_sector_on_sectors"
+            android:layout_marginStart="15dp"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageButton
+            android:id="@+id/image_button_on_sectors_to_go_sectors_signals_list"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/right_chevron"
+            android:background="@color/colorWhite"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/textView_count_of_buy_on_sectors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/image_button_on_sectors_to_go_sectors_signals_list"
+            android:textColor="@color/colorProfit"
+            android:textSize="14sp"
+            android:text="15"/>
+
+        <TextView
+            android:id="@+id/textView_razdelitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/textView_count_of_buy_on_sectors"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:text="/"/>
+
+        <TextView
+            android:id="@+id/textView_count_of_sell_on_sectors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/textView_razdelitel"
+            android:textColor="@color/colorLoss"
+            android:textSize="14sp"
+            android:text="15"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

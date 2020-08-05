@@ -47,7 +47,7 @@ public class SubscriptionFragment extends Fragment {
 
         //Billing
 
-        billingClient = BillingClient.newBuilder(activity).setListener((PurchasesUpdatedListener) this).build();
+/*        billingClient = BillingClient.newBuilder(activity).setListener((PurchasesUpdatedListener) this).build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
@@ -107,8 +107,9 @@ public class SubscriptionFragment extends Fragment {
         });
     }
 
-    public List<String> skuList(){
-        return new ArrayList<>(Arrays.asList("trade.1minth","trade.2mont"));
+    public List<String> skuList()
+        return new ArrayList<>(Arrays.asList("trade.1minth","trade.2mont"));*/
+        return root;
     }
 
 }

@@ -14,8 +14,9 @@
 
         <TextView
             android:id="@+id/textView_signal_symbol_on_signals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_toStartOf="@+id/textView_signal_price_on_signals"
+            android:layout_height="20dp"
             android:text="Bankia S.A. / BKIA"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />

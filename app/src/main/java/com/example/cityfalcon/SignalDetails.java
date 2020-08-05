@@ -73,15 +73,15 @@ public class SignalDetails extends Fragment {
                 else {
                     signal_price_on_signals_details.setText(signalsMoreArticle.getSignal().getBuy_price().toString());
                 }
-                signal_current_price_on_signals_details.setText(signalsMoreArticle.getSignal().getCurrent_price().toString()+"%");
+            //    signal_current_price_on_signals_details.setText(signalsMoreArticle.getSignal().getCurrent_price().toString()+"%");
 
-                if (signalsMoreArticle.getSignal().getCurrent_price()> 0) {
+             /*   if (signalsMoreArticle.getSignal().getCurrent_price()> 0) {
                     signal_current_price_on_signals_details.setTextColor(R.color.colorProfit);
                 }
 
                 else {signal_current_price_on_signals_details.setTextColor(R.color.colorLoss);}
 
-                sector_title_signals_details.setText(signalsMoreArticle.getSignal().getSector_title());
+                sector_title_signals_details.setText(signalsMoreArticle.getSignal().getSector_title());*/
 
 
 

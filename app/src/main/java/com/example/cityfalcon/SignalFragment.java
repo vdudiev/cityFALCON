@@ -95,8 +95,7 @@ public class SignalFragment extends Fragment {
                 sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
                         filters,
                         registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
@@ -121,8 +120,7 @@ public class SignalFragment extends Fragment {
                 buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                ApiService apiService = retrofit.create(ApiService.class);
-                apiService.GetSignalsBuySell(registrationResponse.getAccept(),
+                RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
                         filters,
                         registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {

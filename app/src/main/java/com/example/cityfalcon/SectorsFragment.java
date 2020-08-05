@@ -1,13 +1,20 @@
 package com.example.cityfalcon;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -57,11 +64,34 @@ public class SectorsFragment extends Fragment {
         }
     }
 
+    Context context;
+    RecyclerView recyclerView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sectors, container, false);
+        View root =  inflater.inflate(R.layout.fragment_sectors, container, false);
+
+        RegistrationResponse registrationResponse = new RegistrationResponse();
+        recyclerView = root.findViewById(R.id.recyclerview_sectors);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        context = getActivity();
+
+        RetrofitCreate.getRetrofit().GetSectors(registrationResponse.getAccept(),
+                registrationResponse.getAuthorization()).enqueue(new Callback<SectorsArticle>() {
+            @Override
+            public void onResponse(Call<SectorsArticle> call, Response<SectorsArticle> response) {
+            SectorsAdapter adapter = new SectorsAdapter(response.body().getSectors(),context);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<SectorsArticle> call, Throwable t) {
+
+            }
+        });
+
+        return root;
     }
 
 }

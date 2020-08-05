@@ -2,9 +2,13 @@ package com.example.cityfalcon;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -13,14 +17,32 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeActivity extends AppCompatActivity {
 
 
+    private final String SAVE_ANSWER = "don't agree";
+    SharedPreferences sPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        TermsConditionsBottomSheet termsConditionsBottomSheet = new TermsConditionsBottomSheet();
-        termsConditionsBottomSheet.show(getSupportFragmentManager(),"termsConditionsBottomSheet");
 
+        sPref =  getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor =  sPref.edit();
+        editor.putString(SAVE_ANSWER,"don't agree");
+        editor.apply();
+
+        sPref = getPreferences(MODE_PRIVATE);
+        String answer =  sPref.getString(SAVE_ANSWER,"");
+        if (answer.equals("don't agree"))
+        {
+            TermsConditionsBottomSheet termsConditionsBottomSheet = new TermsConditionsBottomSheet();
+            termsConditionsBottomSheet.show(getSupportFragmentManager(), "termsConditionsBottomSheet");
+        }
+        else
+        {
+            LiveTradingResultsBottomSheet liveTradingResultsBottomSheet  = new LiveTradingResultsBottomSheet();
+            liveTradingResultsBottomSheet.show(getSupportFragmentManager(),"liveTradingResultsBottomSheet");
+        }
 
 
         BottomNavigationView navigationView = findViewById(R.id.bottom_navigation);
@@ -63,6 +85,18 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
+    public void saveAnswerForTermsCont(String saveAnswerForGet) {
+        sPref =  getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor =  sPref.edit();
+        editor.putString(SAVE_ANSWER,saveAnswerForGet);
+        editor.apply();
+    }
+
+
 }
 
 
