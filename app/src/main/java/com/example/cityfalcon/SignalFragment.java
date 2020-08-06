@@ -71,10 +71,10 @@ public class SignalFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
-                signalsCount += adapter.getItemCount();
-                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
-                signalsCount += adapter.getItemCount();
+                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
+                signalsCount += response.body().buy.size()+response.body().sell.size();
+                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
+//                signalsCount += adapter.getItemCount();
                 textViewSignalCount.setText(signalsCount.toString());
                 adapter.setSellBuyChek(0);
                 recyclerView.setAdapter(adapter);
@@ -101,14 +101,14 @@ public class SignalFragment extends Fragment {
                         registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
                         adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
 
                     @Override
                     public void onFailure(Call<SignalsArticle> call, Throwable t) {
-
+                        System.out.println(t.getMessage());
                     }
                 });
             }
@@ -126,7 +126,7 @@ public class SignalFragment extends Fragment {
                         registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
                         adapter.setSellBuyChek(1);
                         recyclerView.setAdapter(adapter);
                     }

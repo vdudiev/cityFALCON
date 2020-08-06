@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class SignalsArticle {
 
-   Boolean success;
-   SignalsBuySellArticle sell;
-   SignalsBuySellArticle buy;
+    Boolean success;
+    ArrayList<SignalFromSignalsBuySellArticle>  sell;
+    ArrayList<SignalFromSignalsBuySellArticle> buy;
 
     public boolean isSuccess() {
         return success;
@@ -19,19 +19,19 @@ public class SignalsArticle {
         this.success = success;
     }
 
-    public SignalsBuySellArticle getSell() {
+    public ArrayList<SignalFromSignalsBuySellArticle> getSell() {
         return sell;
     }
 
-    public void setSell(SignalsBuySellArticle sell) {
+    public void setSell(ArrayList<SignalFromSignalsBuySellArticle> sell) {
         this.sell = sell;
     }
 
-    public SignalsBuySellArticle getBuy() {
+    public ArrayList<SignalFromSignalsBuySellArticle> getBuy() {
         return buy;
     }
 
-    public void setBuy(SignalsBuySellArticle buy) {
+    public void setBuy(ArrayList<SignalFromSignalsBuySellArticle> buy) {
         this.buy = buy;
     }
 }
