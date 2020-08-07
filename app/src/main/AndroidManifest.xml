@@ -16,11 +16,11 @@
         android:windowSoftInputMode="stateUnspecified|adjustResize"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".SplashScreenActivity"
+        <activity android:name=".Activities.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
