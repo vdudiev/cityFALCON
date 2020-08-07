@@ -17,7 +17,7 @@
     <string name="string_subscription">Subscription</string>
     <string name="string_terms_amp_conditions"><![CDATA[Terms&Conditions]]></string>
     <string name="string_sectors_list">Sectors list</string>
-    <string name="string_current_price">Current price</string>
+    <string name="string_current_price">Close price</string>
     <string name="string_communication_services">Communication Services</string>
     <string name="string_consumer_discretionary">Consumer Discretionary</string>
     <string name="string_consumer_staples">Consumer Staples</string>
