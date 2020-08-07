@@ -71,7 +71,7 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private Float signal_id;
+        private Integer signal_id;
         final TextView symbol;
         final TextView date_time;
         final TextView price;

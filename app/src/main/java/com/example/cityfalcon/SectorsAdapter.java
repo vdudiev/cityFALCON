@@ -2,6 +2,7 @@ package com.example.cityfalcon;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,15 +79,16 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
 
             view.setOnClickListener(v -> {
                 //тут будет переход на детаьлую страницу определённого сектора
-
-               /* FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
-                SignalDetails signalDetails = new SignalDetails();
-                signalDetails.setSignal_id_to_set(signal_id);
-                signalDetails.setSellBuyCheking(getSellBuyChek());
-                fragmentTransaction.replace(R.id.content_fragment, signalDetails);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();*/
-
+                SignalsBySectorFragment signalsBySectorFragment = new SignalsBySectorFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt(SignalsBySectorFragment.SECTOR_ID, list.get(getAdapterPosition()).getId());
+                bundle.putString(SignalsBySectorFragment.SECTOR_NAME, list.get(getAdapterPosition()).getSector());
+                signalsBySectorFragment.setArguments(bundle);
+                FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
+                //signalDetails.setSellBuyCheking(getSellBuyChek());
+                fragmentTransaction.add(R.id.content_fragment, signalsBySectorFragment);
+                fragmentTransaction.addToBackStack("signalsBySectorFragment");
+                fragmentTransaction.commit();
             });
         }
     }

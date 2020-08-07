@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/bottom_gray_border"
     android:layout_marginTop="15dp">
 
@@ -18,6 +18,10 @@
             android:layout_toStartOf="@+id/textView_signal_price_on_signals"
             android:layout_height="20dp"
             android:text="Bankia S.A. / BKIA"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:lines="1"
+            android:ellipsize="end"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
 
@@ -29,7 +33,8 @@
             android:textColor="@color/colorSecondary"
             android:text="22.01.2020 08:20"
             android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"/>
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/textView_signal_price_on_signals"/>
 
         <TextView
             android:id="@+id/textView_signal_price_on_signals"
@@ -38,6 +43,7 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/colorBlack"
             android:gravity="center"
+            android:layout_marginTop="12dp"
             android:textSize="14sp"
             android:text="1.7790"/>
 
@@ -58,29 +64,22 @@
             android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="27dp"
             android:gravity="end"
             android:text="1.5380"/>
 
         <TextView
             android:id="@+id/textView_signal_percentage_difference_on_signals"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
-            android:textColor="@color/colorBlack"
-            android:textSize="14sp"
             android:layout_marginEnd="27dp"
-            android:text="+1.15%"
+            android:layout_toStartOf="@+id/image_button_signals_watchlist_add_checked"
             android:gravity="end"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"/>
-
-
-
-
-
-
+            android:text="+1.15%"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/textView_signal_price_on_signals"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>

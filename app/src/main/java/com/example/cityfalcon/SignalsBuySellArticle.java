@@ -1,13 +1,13 @@
 package com.example.cityfalcon;
 
 class SignalsBuySellArticle {
-    private Float id;
+    private Integer id;
     private String symbol;
-    private Float origin_id;
+    private Integer origin_id;
     private String order;
     private String date_time;
-    private Float instrument_id;
-    private Float sector_id;
+    private Integer instrument_id;
+    private Integer sector_id;
     private Float price;
     private Float current_price;
     private Float take_profit;
@@ -20,11 +20,11 @@ class SignalsBuySellArticle {
     private OriginForSignals origin;
     private SectorForSignals sector;
 
-    public Float getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Float id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,11 +36,11 @@ class SignalsBuySellArticle {
         this.symbol = symbol;
     }
 
-    public Float getOrigin_id() {
+    public Integer getOrigin_id() {
         return origin_id;
     }
 
-    public void setOrigin_id(Float origin_id) {
+    public void setOrigin_id(Integer origin_id) {
         this.origin_id = origin_id;
     }
 
@@ -60,19 +60,19 @@ class SignalsBuySellArticle {
         this.date_time = date_time;
     }
 
-    public Float getInstrument_id() {
+    public Integer getInstrument_id() {
         return instrument_id;
     }
 
-    public void setInstrument_id(Float instrument_id) {
+    public void setInstrument_id(Integer instrument_id) {
         this.instrument_id = instrument_id;
     }
 
-    public Float getSector_id() {
+    public Integer getSector_id() {
         return sector_id;
     }
 
-    public void setSector_id(Float sector_id) {
+    public void setSector_id(Integer sector_id) {
         this.sector_id = sector_id;
     }
 

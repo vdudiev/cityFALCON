@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/string_Signals"
+                android:id="@+id/tv_header"
                 android:textColor="@color/colorBlack"
                 android:layout_gravity="center"
                 android:textSize="20sp"
@@ -93,7 +94,11 @@
                 android:background="@color/colorFA"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
                 android:hint="@string/companies_or_symbols"
+                android:id="@+id/et_search"
                 android:textColorHint="@color/colorSecondary"/>
         </LinearLayout>
 
@@ -168,11 +173,12 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="@color/colorSecondary"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:text="@string/sell_price"
-                android:layout_gravity="center"/>
+                android:id="@+id/tv_sell_buy"
+                android:textColor="@color/colorSecondary"
+                android:textSize="13sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,12 +189,21 @@
                 android:layout_gravity="end"/>
         </FrameLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_signals_on_signals"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp" />
+            android:id="@+id/srl"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="0dp">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_signals_on_signals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

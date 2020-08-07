@@ -75,8 +75,8 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
     }
 
     //получить id инструмента
-    private Float instrumentId;
-    private Float GetInstrumentId (String filterOrInstrumentTitle){
+    private Integer instrumentId;
+    private Integer GetInstrumentId (String filterOrInstrumentTitle){
         RetrofitCreate.getRetrofit().GetInstrumentId(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 filterOrInstrumentTitle).enqueue(new Callback<InstrumentArticle>() {

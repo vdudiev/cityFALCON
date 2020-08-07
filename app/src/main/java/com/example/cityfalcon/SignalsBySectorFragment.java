@@ -4,13 +4,6 @@ package com.example.cityfalcon;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,22 +15,29 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignalFragment extends Fragment {
+public class SignalsBySectorFragment extends Fragment {
 
+    public static String SECTOR_ID="SECTOR_ID";
+    public static String SECTOR_NAME="SECTOR_NAME";
 
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
     private Integer signalsCount;
-    private TextView textViewSignalCount, tvSellBuy;
+    private TextView textViewSignalCount, tvSellBuy, tvHeader;
     private String filters = "";
     private SwipeRefreshLayout srl;
     private int shownTab=0;
@@ -45,11 +45,21 @@ public class SignalFragment extends Fragment {
     private LinearLayout buyLinearLayout;
     private String search="";
     private EditText etSearch;
+    private Integer sectorID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_signal, container, false);
+        tvHeader = root.findViewById(R.id.tv_header);
+        if (getArguments()!=null){
+            if(getArguments().getInt(SECTOR_ID, -1) != -1 ){
+                sectorID = getArguments().getInt(SECTOR_ID);
+            }
+            if(getArguments().getString(SECTOR_NAME, null)!=null){
+                tvHeader.setText(getArguments().getString(SECTOR_NAME));
+            }
+        }
 
         Button buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
         buttonOnSignalFragmentToGetFilters.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +69,7 @@ public class SignalFragment extends Fragment {
                 filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
             }
         });
+
 
         srl = root.findViewById(R.id.srl);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -101,11 +112,9 @@ public class SignalFragment extends Fragment {
 
         //first sell signals
         signalsCount = 0;
-        RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
+        RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
-                filters,
-                registrationResponse.getLang(),
-                search).enqueue(new Callback<SignalsArticle>() {
+                sectorID).enqueue(new Callback<SignalsArticle>() {
 
             @SuppressLint("SetTextI18n")
             @Override
@@ -136,11 +145,9 @@ public class SignalFragment extends Fragment {
                 sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
+                RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
-                        filters,
-                        registrationResponse.getLang(),
-                        search).enqueue(new Callback<SignalsArticle>() {
+                        sectorID).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
@@ -167,11 +174,9 @@ public class SignalFragment extends Fragment {
                 buyLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 sellLinearLayout.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
+                RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
-                        filters,
-                        registrationResponse.getLang(),
-                        search).enqueue(new Callback<SignalsArticle>() {
+                        sectorID).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);

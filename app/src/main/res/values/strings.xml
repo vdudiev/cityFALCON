@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CityFALCON</string>
+    <string name="app_name">TradeStocksApp.com</string>
     <string name="string_Signal">Signal</string>
     <string name="string_Signals">Signals</string>
     <string name="string_Watchlist">Watchlist</string>
@@ -14,6 +14,7 @@
     <string name="string_sell">SELL</string>
     <string name="symbol_date">Symbol / Date</string>
     <string name="sell_price">Sell price</string>
+    <string name="buy_price">Buy price</string>
     <string name="string_subscription">Subscription</string>
     <string name="string_terms_amp_conditions"><![CDATA[Terms&Conditions]]></string>
     <string name="string_sectors_list">Sectors list</string>
@@ -70,6 +71,8 @@
     <string name="string_7_days_free">7 days free</string>
     <string name="string_sector">Sector</string>
     <string name="string_add_to_watchlist">Add to watchlist</string>
+    <string name="string_remove_from_watchlist">Remove from watchlist</string>
+
     <string name="string_detailed_information">Detailed information</string>
     <string name="string_stop_loss">STOP LOSS</string>
     <string name="string_take_profit">TAKE PROFIT</string>

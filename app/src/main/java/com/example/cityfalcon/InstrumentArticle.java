@@ -2,7 +2,7 @@ package com.example.cityfalcon;
 
 public class InstrumentArticle {
     private Boolean success;
-    private Float instrument_id;
+    private Integer instrument_id;
 
     public Boolean getSuccess() {
         return success;
@@ -12,11 +12,11 @@ public class InstrumentArticle {
         this.success = success;
     }
 
-    public Float getInstrument_id() {
+    public Integer getInstrument_id() {
         return instrument_id;
     }
 
-    public void setInstrument_id(Float instrument_id) {
+    public void setInstrument_id(Integer instrument_id) {
         this.instrument_id = instrument_id;
     }
 }

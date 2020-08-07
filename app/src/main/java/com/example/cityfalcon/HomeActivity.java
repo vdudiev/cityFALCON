@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeActivity extends AppCompatActivity {
 
 
-    private final String SAVE_ANSWER = "don't agree";
+    private final String SAVE_ANSWER = "SAVE_ANSWER";
     SharedPreferences sPref;
 
     @Override
@@ -25,15 +25,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-        sPref =  getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor =  sPref.edit();
-        editor.putString(SAVE_ANSWER,"don't agree");
-        editor.apply();
-
         sPref = getPreferences(MODE_PRIVATE);
         String answer =  sPref.getString(SAVE_ANSWER,"");
-        if (answer.equals("don't agree"))
+        if (!answer.equals("agree"))
         {
             TermsConditionsBottomSheet termsConditionsBottomSheet = new TermsConditionsBottomSheet();
             termsConditionsBottomSheet.show(getSupportFragmentManager(), "termsConditionsBottomSheet");
@@ -93,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
         sPref =  getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor =  sPref.edit();
         editor.putString(SAVE_ANSWER,saveAnswerForGet);
-        editor.apply();
+        editor.commit();
     }
 
 

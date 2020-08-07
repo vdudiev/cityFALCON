@@ -6,6 +6,9 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface ApiService {
     //signals on signals
@@ -33,17 +36,22 @@ public interface ApiService {
     Call<SectorsArticle> GetSectors (@Header("Accept") String accept,
                                      @Header("Authorization") String authorization);
 
+    @GET("sectors/{sector}")
+    Call<SignalsArticle> GetSectorsByID (@Header("Accept") String accept,
+                                         @Header("Authorization") String authorization,
+                                         @Path(value = "sector", encoded = true) Integer sector);
+
     @FormUrlEncoded
     @POST("watchlist-delete")
     Call<AddedAndDeletedSignalIdArticle> DeleteSignalFromWatchList (@Header("Accept") String accept,
                                                     @Header("Authorization") String authorization,
-                                                    @Field("signal_id") Float signal_id);
+                                                    @Field("signal_id") Integer signal_id);
 
     @FormUrlEncoded
     @POST("watchlist-add")
     Call<AddedAndDeletedSignalIdArticle> addSignalToWatchList (@Header("Accept") String accept,
                                @Header("Authorization") String authorization,
-                               @Field("signal_id") Float signal_id);
+                               @Field("signal_id") Integer signal_id);
 
     /*@FormUrlEncoded
     @POST("search")
