@@ -25,13 +25,13 @@ public class SignalDetails extends Fragment {
 
 
     private Context context;
-    private SignalFromSignalsBuySellArticle signal_to_set;
+    private SignalsBuySellArticle signal_to_set;
 
-    public SignalFromSignalsBuySellArticle getSignal_to_set() {
+    public SignalsBuySellArticle getSignal_to_set() {
         return signal_to_set;
     }
 
-    public void setSignal_to_set(SignalFromSignalsBuySellArticle signal_to_set) {
+    public void setSignal_to_set(SignalsBuySellArticle signal_to_set) {
         this.signal_to_set = signal_to_set;
     }
 

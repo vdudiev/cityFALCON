@@ -134,9 +134,17 @@
                 android:textSize="14sp" />
 
 
-
             <TextView
                 android:id="@+id/textView_signal_current_price_on_signals_details"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentEnd="true"
+                android:textSize="14sp"
+                android:gravity="end" />
+
+            <TextView
+                android:id="@+id/textView_signal_percentage_difference_on_signals_details"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
@@ -146,14 +154,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_alignParentBottom="true"/>
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:layout_alignParentEnd="true"
-                android:textSize="14sp"
-                android:gravity="end"
-                android:text="?"/>
+
         </RelativeLayout>
 
         <RelativeLayout

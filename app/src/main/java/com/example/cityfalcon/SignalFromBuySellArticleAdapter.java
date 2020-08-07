@@ -26,11 +26,11 @@ import retrofit2.Retrofit;
 public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<SignalFromBuySellArticleAdapter.ViewHolder> {
     LayoutInflater inflater;
 
-    private List<SignalFromSignalsBuySellArticle> list;
+    private List<SignalsBuySellArticle> list;
     private Context cont;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
-    SignalFromBuySellArticleAdapter(List<SignalFromSignalsBuySellArticle> list, Context context) {
+    SignalFromBuySellArticleAdapter(List<SignalsBuySellArticle> list, Context context) {
         this.list = list;
         this.inflater = LayoutInflater.from(context);
         cont = context;
@@ -59,7 +59,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     @SuppressLint({"ResourceAsColor", "SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SignalFromSignalsBuySellArticle currentArticleData = list.get(position);
+        SignalsBuySellArticle currentArticleData = list.get(position);
         holder.symbol.setText(currentArticleData.getSymbol());
         holder.date_time.setText(currentArticleData.getDate_time());
         holder.price.setText(currentArticleData.getPrice().toString());
@@ -102,7 +102,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         final TextView current_price;
         final TextView percentage_difference;
         final ImageButton image_button_check;
-        private SignalFromSignalsBuySellArticle signal_to_set_from_adapter;
+        private SignalsBuySellArticle signal_to_set_from_adapter;
 
 
         ViewHolder(View view){
