@@ -44,13 +44,14 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
         RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 "",
-                registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
+                registrationResponse.getLang(),
+                "").enqueue(new Callback<SignalsArticle>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),getActivity());
+                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),getActivity());
                 buyCount = adapter.getItemCount();
-                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),getActivity());
+                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),getActivity());
                 sellCount = adapter.getItemCount();
                 total_buy_signals.setText(buyCount.toString());
                 total_sell_signals.setText(sellCount.toString());

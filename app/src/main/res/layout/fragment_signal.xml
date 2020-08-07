@@ -44,7 +44,6 @@
             <TextView
                 android:id="@+id/textview_find"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp"

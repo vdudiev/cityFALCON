@@ -20,7 +20,6 @@ import android.widget.TextView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 
 /**
@@ -33,7 +32,6 @@ public class SignalFragment extends Fragment {
 
     }
 
-    private Retrofit retrofit;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
     private Integer signalsCount;
@@ -66,14 +64,15 @@ public class SignalFragment extends Fragment {
         RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 filters,
-                registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
+                registrationResponse.getLang(),
+                "").enqueue(new Callback<SignalsArticle>() {
 
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
                 signalsCount += adapter.getItemCount();
-                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
+                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
                 signalsCount += adapter.getItemCount();
                 textViewSignalCount.setText(signalsCount.toString());
                 adapter.setSellBuyChek(0);
@@ -98,11 +97,12 @@ public class SignalFragment extends Fragment {
                 RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
                         filters,
-                        registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
+                        registrationResponse.getLang(),
+                        "").enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell().getList(),context);
-                        adapter.setSellBuyChek(0);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
+                        adapter.setSellBuyChek(1);
                         recyclerView.setAdapter(adapter);
                     }
 
@@ -123,10 +123,11 @@ public class SignalFragment extends Fragment {
                 RetrofitCreate.getRetrofit().GetSignalsBuySell(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
                         filters,
-                        registrationResponse.getLang()).enqueue(new Callback<SignalsArticle>() {
+                        registrationResponse.getLang(),
+                        "").enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy().getList(),context);
+                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
                         adapter.setSellBuyChek(1);
                         recyclerView.setAdapter(adapter);
                     }

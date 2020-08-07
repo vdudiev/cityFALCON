@@ -7,31 +7,31 @@ import java.util.Date;
 
 public class SignalsArticle {
 
-   Boolean success;
-   SignalsBuySellArticle sell;
-   SignalsBuySellArticle buy;
+  private Boolean success;
+  private ArrayList<SignalFromSignalsBuySellArticle> sell;
+  private ArrayList<SignalFromSignalsBuySellArticle> buy;
 
-    public boolean isSuccess() {
+    public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(boolean success) {
+    public void setSuccess(Boolean success) {
         this.success = success;
     }
 
-    public SignalsBuySellArticle getSell() {
+    public ArrayList<SignalFromSignalsBuySellArticle> getSell() {
         return sell;
     }
 
-    public void setSell(SignalsBuySellArticle sell) {
+    public void setSell(ArrayList<SignalFromSignalsBuySellArticle> sell) {
         this.sell = sell;
     }
 
-    public SignalsBuySellArticle getBuy() {
+    public ArrayList<SignalFromSignalsBuySellArticle> getBuy() {
         return buy;
     }
 
-    public void setBuy(SignalsBuySellArticle buy) {
+    public void setBuy(ArrayList<SignalFromSignalsBuySellArticle> buy) {
         this.buy = buy;
     }
 }

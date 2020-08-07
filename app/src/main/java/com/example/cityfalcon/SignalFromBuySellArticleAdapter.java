@@ -2,6 +2,7 @@ package com.example.cityfalcon;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         return new ViewHolder(view);
     }
 
-    //signal_id_to_get for SignalDetailsFragment
+
 
     //signalSell or signalBuy
     private Integer SellBuyChek;
@@ -55,39 +56,34 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     }
     private Integer check;
 
-    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
+    @SuppressLint({"ResourceAsColor", "SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SignalFromSignalsBuySellArticle currentArticleData = list.get(position);
-       holder.symbol.setText(currentArticleData.getSymbol());
-       holder.date_time.setText(currentArticleData.getDate_time());
-       holder.price.setText(currentArticleData.getPrice().toString());
-       holder.current_price.setText(currentArticleData.getCurrent_price().toString()+"%");
-        if (currentArticleData.getCurrent_price()> 0){ holder.current_price.setTextColor(R.color.colorLoss); }
-        else {holder.current_price.setTextColor(R.color.colorProfit);}
+        holder.symbol.setText(currentArticleData.getSymbol());
+        holder.date_time.setText(currentArticleData.getDate_time());
+        holder.price.setText(currentArticleData.getPrice().toString());
         holder.signal_id = currentArticleData.getId();
+        holder.current_price.setText(currentArticleData.getCurrent_price().toString());
+        Float perDif =  ((currentArticleData.getCurrent_price() - currentArticleData.getPrice())* 100)/ currentArticleData.getPrice();
+        if (perDif > 0 ) {
+            holder.percentage_difference.setTextColor(R.color.colorProfit);
+            holder.percentage_difference.setText("+" + String.format("%.2f",perDif)+"%");
+        }
+        else {
+            holder.percentage_difference.setTextColor(R.color.colorLoss);
+            holder.percentage_difference.setText(String.format("%.2f",perDif)+"%");
+        }
+
 
         //проверка сигнала на принадлежность к watchlist
+        if (currentArticleData.getWatchlist() == 1)
+            holder.image_button_check.setImageResource(R.drawable.ic_ok);
+        else
+            holder.image_button_check.setImageResource(R.drawable.ic_plus);
 
-        RetrofitCreate.getRetrofit().CheckSignalWatchList(registrationResponse.getAccept(),
-                                        registrationResponse.getAuthorization(),
-                                        holder.signal_id).enqueue(new Callback<Integer>() {
-            @Override
-            public void onResponse(Call<Integer> call, Response<Integer> response) {
-                check = response.body() ;
-                if (check == 1) {
-                    holder.image_button_check.setImageResource(R.drawable.ic_ok);
-                }
-                else { holder.image_button_check.setImageResource(R.drawable.ic_plus); }
-            }
-
-            @Override
-            public void onFailure(Call<Integer> call, Throwable t) {
-
-            }
-        });
-
-
+        holder.watchlisthek = currentArticleData.getWatchlist();
+        holder.signal_to_set_from_adapter = currentArticleData;
 
     }
 
@@ -98,12 +94,15 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        private Integer watchlisthek;
         private Float signal_id;
         final TextView symbol;
         final TextView date_time;
         final TextView price;
         final TextView current_price;
+        final TextView percentage_difference;
         final ImageButton image_button_check;
+        private SignalFromSignalsBuySellArticle signal_to_set_from_adapter;
 
 
         ViewHolder(View view){
@@ -115,29 +114,50 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
             date_time =  view.findViewById(R.id.textView_signal_date_time_on_signals);
             price = view.findViewById(R.id.textView_signal_price_on_signals);
             current_price = view.findViewById(R.id.textView_signal_current_price_on_signals);
+            percentage_difference = view.findViewById(R.id.textView_signal_percentage_difference_on_signals);
             image_button_check = view.findViewById(R.id.image_button_signals_watchlist_add_checked);
-
             image_button_check.setOnClickListener(v -> {
-                RetrofitCreate.getRetrofit().addSignalToWatchList(registrationResponse.getAccept(),
-                                                registrationResponse.getAuthorization(),
-                                                signal_id).enqueue(new Callback<AddedAndDeletedSignalIdArticle>() {
-                    @Override
-                    public void onResponse(Call<AddedAndDeletedSignalIdArticle> call, Response<AddedAndDeletedSignalIdArticle> response) {
 
-                    }
+                if(watchlisthek == 0) {
 
-                    @Override
-                    public void onFailure(Call<AddedAndDeletedSignalIdArticle> call, Throwable t) {
+                    RetrofitCreate.getRetrofit().addSignalToWatchList(registrationResponse.getAccept(),
+                            registrationResponse.getAuthorization(),
+                            signal_id).enqueue(new Callback<AddedAndDeletedSignalIdArticle>() {
+                        @Override
+                        public void onResponse(Call<AddedAndDeletedSignalIdArticle> call, Response<AddedAndDeletedSignalIdArticle> response) {
 
-                    }
-                });
+                        }
+
+                        @Override
+                        public void onFailure(Call<AddedAndDeletedSignalIdArticle> call, Throwable t) {
+
+                        }
+                    });
+                    image_button_check.setImageResource(R.drawable.ic_ok);
+                }
+                else {
+                    RetrofitCreate.getRetrofit().DeleteSignalFromWatchList(registrationResponse.getAccept(),
+                            registrationResponse.getAuthorization(),
+                            signal_id).enqueue(new Callback<AddedAndDeletedSignalIdArticle>() {
+                        @Override
+                        public void onResponse(Call<AddedAndDeletedSignalIdArticle> call, Response<AddedAndDeletedSignalIdArticle> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<AddedAndDeletedSignalIdArticle> call, Throwable t) {
+
+                        }
+                    });
+                    image_button_check.setImageResource(R.drawable.ic_plus);
+                }
             });
 
             view.setOnClickListener(v -> {
                 FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
                 SignalDetails signalDetails = new SignalDetails();
-                signalDetails.setSignal_id_to_set(signal_id);
-                signalDetails.setSellBuyCheking(getSellBuyChek());
+                signalDetails.setSignal_to_set(signal_to_set_from_adapter);
+                //signalDetails.setSellBuyCheking(getSellBuyChek());
                 fragmentTransaction.replace(R.id.content_fragment, signalDetails);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

@@ -1,12 +1,27 @@
 package com.example.cityfalcon;
 
+import java.util.ArrayList;
+
 public class SignalFromSignalsBuySellArticle {
 
     private Float id;
     private String symbol;
+    private Float origin_id;
+    private String order;
     private String date_time;
+    private Float instrument_id;
+    private Float sector_id;
     private Float price;
     private Float current_price;
+    private Float take_profit;
+    private Float stop_loss;
+    private String detailed_signal_info;
+    private Float paid_subscription;
+    private String created_at;
+    private String updated_at;
+    private Integer watchlist;
+    private OriginForSignals origin;
+    private SectorForSignals sector;
 
     public Float getId() {
         return id;
@@ -24,12 +39,44 @@ public class SignalFromSignalsBuySellArticle {
         this.symbol = symbol;
     }
 
+    public Float getOrigin_id() {
+        return origin_id;
+    }
+
+    public void setOrigin_id(Float origin_id) {
+        this.origin_id = origin_id;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
     public String getDate_time() {
         return date_time;
     }
 
     public void setDate_time(String date_time) {
         this.date_time = date_time;
+    }
+
+    public Float getInstrument_id() {
+        return instrument_id;
+    }
+
+    public void setInstrument_id(Float instrument_id) {
+        this.instrument_id = instrument_id;
+    }
+
+    public Float getSector_id() {
+        return sector_id;
+    }
+
+    public void setSector_id(Float sector_id) {
+        this.sector_id = sector_id;
     }
 
     public Float getPrice() {
@@ -46,5 +93,78 @@ public class SignalFromSignalsBuySellArticle {
 
     public void setCurrent_price(Float current_price) {
         this.current_price = current_price;
+    }
+
+    public Float getTake_profit() {
+        return take_profit;
+    }
+
+    public void setTake_profit(Float take_profit) {
+        this.take_profit = take_profit;
+    }
+
+    public Float getStop_loss() {
+        return stop_loss;
+    }
+
+    public void setStop_loss(Float stop_loss) {
+        this.stop_loss = stop_loss;
+    }
+
+    public String getDetailed_signal_info() {
+        return detailed_signal_info;
+    }
+
+    public void setDetailed_signal_info(String detailed_signal_info) {
+        this.detailed_signal_info = detailed_signal_info;
+    }
+
+    public Float getPaid_subscription() {
+        return paid_subscription;
+    }
+
+    public void setPaid_subscription(Float paid_subscription) {
+        this.paid_subscription = paid_subscription;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
+
+    public Integer getWatchlist() {
+        return watchlist;
+    }
+
+    public void setWatchlist(Integer watchlist) {
+        this.watchlist = watchlist;
+    }
+
+    public OriginForSignals getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(OriginForSignals origin) {
+        this.origin = origin;
+    }
+
+    public SectorForSignals getSector() {
+        return sector;
+    }
+
+    public void setSector(SectorForSignals sector) {
+        this.sector = sector;
     }
 }

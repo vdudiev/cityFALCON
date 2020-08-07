@@ -48,7 +48,7 @@ public class SearchFragment extends Fragment {
 
         context = getActivity();
 
-        RegistrationResponse registrationResponse = new RegistrationResponse();
+       /* RegistrationResponse registrationResponse = new RegistrationResponse();
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_signals_on_search);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -87,7 +87,7 @@ public class SearchFragment extends Fragment {
 
 
             //вызвать сигналы
-            RetrofitCreate.getRetrofit().GetSignalsFromSearch(registrationResponse.getAccept(),
+           RetrofitCreate.getRetrofit().GetSignalsFromSearch(registrationResponse.getAccept(),
                     registrationResponse.getAuthorization(),
                     search,
                     instrument).enqueue(new Callback<SignalsBuySellArticle>() {
@@ -108,14 +108,14 @@ public class SearchFragment extends Fragment {
 
         for (int i=0; i<scrollSearchButtons.size(); i++) {
             scrollSearchButtons.get(i).setOnClickListener(onClickListener);
-        }
+        }*/
 
         return root;
     }
 
 
 
-    private void searchScrollSelector (String text){
+   /* private void searchScrollSelector (String text){
         for (int i=0; i<scrollSearchButtons.size(); i++) {
             if (text.equals(scrollSearchButtons.get(i).getText().toString())){
                 scrollSearchButtons.get(i).setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.outline_background_selected_search_fragment));
@@ -126,5 +126,5 @@ public class SearchFragment extends Fragment {
                 scrollSearchButtons.get(i).setBackground(ContextCompat.getDrawable(getContext(), R.drawable.outline_background_search_fragment));
             }
         }
-    }
+    }*/
 }

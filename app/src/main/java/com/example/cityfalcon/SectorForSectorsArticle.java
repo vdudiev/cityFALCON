@@ -5,11 +5,20 @@ import android.net.Uri;
 import java.net.URL;
 
 public class SectorForSectorsArticle {
-   private String sector;
-   private Integer sell;
-   private Integer buy;
-   String image;
+    private  Float id;
+    private String sector;
+    private Integer sell;
+    private Integer buy;
+    String image;
 
+
+    public Float getId() {
+        return id;
+    }
+
+    public void setId(Float id) {
+        this.id = id;
+    }
 
     public String getImage() {
         return image;

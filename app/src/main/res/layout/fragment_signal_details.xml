@@ -11,18 +11,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/textView_signals_details_symbol_up"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginEnd="21dp"
                 android:textColor="@color/colorBlack"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
+
             <Button
                 android:id="@+id/bottom_back_to_signals_from_details"
                 android:layout_width="21dp"
@@ -31,7 +34,7 @@
                 android:layout_marginTop="3dp"
                 android:layout_gravity="start" />
 
-        </FrameLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -46,7 +49,7 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp"
                 android:gravity="start"
-                android:text="Find  "/>
+                android:text="Find   "/>
 
             <TextView
                 android:id="@+id/textview_number_of_short_terms_signal_details"
@@ -110,8 +113,10 @@
 
             <TextView
                 android:id="@+id/textView_signal_symbol_on_signals_details_mid"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_toStartOf="@+id/textView_signal_price_on_signals_details"
+                android:layout_height="20dp"
+                android:text="Bankia S.A. / BKIA"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
@@ -133,27 +138,27 @@
                 android:gravity="center"
                 android:textSize="14sp" />
 
-
-
             <TextView
                 android:id="@+id/textView_signal_current_price_on_signals_details"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-                android:gravity="end"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="20dp"
-                android:layout_alignParentBottom="true"/>
+                android:textSize="14sp"
+                android:gravity="end" />
+
 
             <TextView
+                android:id="@+id/textView_signal_percentage_difference_on_signals_details"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
                 android:layout_alignParentEnd="true"
-                android:textSize="14sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
                 android:gravity="end"
-                android:text="?"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -217,16 +222,6 @@
             android:textSize="10sp"
             android:text="@string/string_stop_loss" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="110dp"
-                android:textColor="@color/colorProfit"
-                android:layout_toEndOf="@+id/textView_sl"
-                android:textSize="10sp"
-                android:text="@string/string_take_profit" />
-
             <TextView
                 android:id="@+id/textView_stop_loss_on_signals_details"
                 android:layout_width="wrap_content"
@@ -236,16 +231,31 @@
                 android:textSize="16sp"
                 android:text="SL = 1.6010" />
 
-            <TextView
-                android:id="@+id/textView_take_profit_on_signals_details"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/textView_stop_loss_on_signals_details"
-                android:textColor="@color/colorBlack"
-                android:layout_marginStart="78dp"
-                android:layout_below = "@+id/textView_sl"
-                android:textSize="16sp"
-                android:text="TP = 1.5050" />
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/textView_sl"
+                android:layout_marginStart="110dp">
+
+                <TextView
+                    android:id="@+id/textView_tp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorProfit"
+                    android:textSize="10sp"
+                    android:text="@string/string_take_profit" />
+
+                <TextView
+                    android:id="@+id/textView_take_profit_on_signals_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:layout_below = "@+id/textView_sl"
+                    android:textSize="16sp"
+                    android:text="TP = 1.5050" />
+            </LinearLayout>
+
         </RelativeLayout>
 
         <RelativeLayout

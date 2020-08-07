@@ -3,6 +3,7 @@ package com.example.cityfalcon;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
@@ -13,7 +14,8 @@ public interface ApiService {
     Call<SignalsArticle> GetSignalsBuySell (@Header("Accept") String accept,
                                             @Header("Authorization") String authorization,
                                             @Field("filters") String filters,
-                                            @Field("lang") String Lang);
+                                            @Field("lang") String lang,
+                                            @Field("search") String search);
 
     @FormUrlEncoded
     @POST("signal")
@@ -23,7 +25,7 @@ public interface ApiService {
                                                  @Field("lang") String lang);
 
     //watch list
-    @POST("watchlist-get")
+    @GET("watchlist")
     Call<SignalsArticle> GetWatchList   (@Header("Accept") String accept,
                                          @Header("Authorization") String authorization);
 
@@ -43,12 +45,12 @@ public interface ApiService {
                                @Header("Authorization") String authorization,
                                @Field("signal_id") Float signal_id);
 
-    @FormUrlEncoded
+    /*@FormUrlEncoded
     @POST("search")
     Call<SignalsBuySellArticle> GetSignalsFromSearch(@Header("Accept") String accept,
                                                  @Header("Authorization") String authorization,
                                                  @Field("search") String search,
-                                                 @Field("instrument") String instrument);
+                                                 @Field("instrument") String instrument);*/
 
     @FormUrlEncoded
     @POST("instrument")

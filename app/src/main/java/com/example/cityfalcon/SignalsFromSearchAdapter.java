@@ -95,7 +95,7 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
                 RetrofitCreate.getRetrofit().addSignalToWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization(), signal_id);
             });
 
-            view.setOnClickListener(v -> {
+            /*view.setOnClickListener(v -> {
                 FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
                 SignalDetails signalDetails = new SignalDetails();
                 signalDetails.setSignal_id_to_set(signal_id);
@@ -104,7 +104,7 @@ public class SignalsFromSearchAdapter extends RecyclerView.Adapter<SignalsFromSe
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
-            });
+            });*/
         }
     }
 
