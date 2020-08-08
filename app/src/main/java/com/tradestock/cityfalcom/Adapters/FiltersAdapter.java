@@ -33,6 +33,10 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
         cont = context;
     }
 
+    public String getFilters(){
+        return filtrForSignals;
+    }
+
     @NonNull
     @Override
     public FiltersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,10 +48,16 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
     @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull FiltersAdapter.ViewHolder holder, int position) {
-        InstrumentsForFilters currentArticleData = list.get(position);
-        holder.image_check_on_filters.setImageResource(R.drawable.ic_filter_not_checked);
-        holder.textView_instrument_title_on_filters.setText(currentArticleData.getTitle());
-        holder.instrumentId = currentArticleData.getId().toString();
+        if (list.get(position)!=null) {
+            InstrumentsForFilters currentArticleData = list.get(position);
+            holder.image_check_on_filters.setImageResource(currentArticleData.isChecked()?R.drawable.ic_filter_checked:R.drawable.ic_filter_not_checked);
+            holder.textView_instrument_title_on_filters.setText(currentArticleData.getTitle());
+            holder.instrumentId = currentArticleData.getId().toString();
+        } else {
+            holder.textView_instrument_title_on_filters.setText(R.string.filters_all);
+            holder.image_check_on_filters.setImageResource(filtrForSignals.equals("")?R.drawable.ic_filter_checked:R.drawable.ic_filter_not_checked);
+
+        }
 
 
     }
@@ -72,15 +82,24 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
             textView_instrument_title_on_filters = view.findViewById(R.id.textView_instrument_title_on_filters);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    if (filtrForSignals.contains(instrumentId)){
-                        filtrForSignals = filtrForSignals.replaceAll(instrumentId +" ", "");
-                        image_check_on_filters.setImageResource(R.drawable.ic_filter_not_checked);
-                    }
-                    else{
-                        filtrForSignals += instrumentId + " ";
-                        image_check_on_filters.setImageResource(R.drawable.ic_filter_checked);
+                public  void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos>0) {
+                        list.get(pos).setChecked(!list.get(pos).isChecked());
+                        notifyDataSetChanged();
 
+                        if (!list.get(pos).isChecked()) {
+                            filtrForSignals = filtrForSignals.replaceAll(instrumentId + ",", "");
+                        } else {
+                            filtrForSignals += instrumentId + ",";
+
+                        }
+                    } else {
+                        filtrForSignals = "";
+                        for (int i = 1; i<list.size(); i++){
+                            list.get(i).setChecked(false);
+                        }
+                        notifyDataSetChanged();
                     }
 
                 }

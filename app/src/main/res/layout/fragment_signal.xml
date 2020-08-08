@@ -49,7 +49,7 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp"
                 android:gravity="start"
-                android:text="Find  "/>
+                android:text="Find    "/>
 
                 <TextView
                     android:id="@+id/textview_number_of_short_terms_signal_fragment"

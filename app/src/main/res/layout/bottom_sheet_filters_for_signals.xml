@@ -14,21 +14,26 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/srl"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="22dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_instruments_on_filter"
             android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_height="match_parent"/>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:id="@+id/btn_apply"
+        android:background="@drawable/outline_background_selected_search_fragment"
+        android:text="@string/apply"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="16dp"
+        />
+
 
 
 </LinearLayout>

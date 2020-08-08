@@ -78,6 +78,10 @@
     <string name="string_take_profit">TAKE PROFIT</string>
     <string name="string_filter">Filter</string>
     <string name="string_apply">Apply</string>
+    <string name="filters_all">All</string>
+    <string name="apply">Apply</string>
+    <string name="short_term_sell_amp_buy_trading_signals_for_your_investment_plan"><![CDATA[short-term Sell&Buy trading signals for your investment plan.]]></string>
+    <string name="find">Find     </string>
 
 
 </resources>

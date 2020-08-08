@@ -6,6 +6,7 @@ public class InstrumentsForFilters {
     private String title;
     private String created_at;
     private String updated_at;
+    private boolean checked;
 
 
     public Float getId() {
@@ -38,5 +39,13 @@ public class InstrumentsForFilters {
 
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }

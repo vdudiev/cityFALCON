@@ -50,25 +50,35 @@ public class SignalFragment extends Fragment {
     private LinearLayout buyLinearLayout;
     private String search="";
     private EditText etSearch;
-    private Button button_search;
-    private Button buttonOnSignalFragmentToGetFilters;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_signal, container, false);
 
-        buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
+        Button buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
         buttonOnSignalFragmentToGetFilters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FiltersForSignlsBottomSheet filtersForSignlsBottomSheet = new FiltersForSignlsBottomSheet();
+                filtersForSignlsBottomSheet.setOnFilterListener(new FiltersForSignlsBottomSheet.OnFilterListener() {
+                    @Override
+                    public void onFilter(String filters) {
+                        SignalFragment.this.filters = filters;
+                        if (shownTab == 0){
+                            sellLinearLayout.callOnClick();
+                        }
+                        else {
+                            buyLinearLayout.callOnClick();
+                        }
+                    }
+                });
                 filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
             }
         });
 
         //кнопка поиска
-        button_search = root.findViewById(R.id.button_search_signal_fragment);
+        Button button_search = root.findViewById(R.id.button_search_signal_fragment);
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

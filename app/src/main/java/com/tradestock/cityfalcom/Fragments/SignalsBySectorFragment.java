@@ -78,6 +78,26 @@ public class SignalsBySectorFragment extends Fragment {
             }
         });
 
+        buttonOnSignalFragmentToGetFilters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FiltersForSignlsBottomSheet filtersForSignlsBottomSheet = new FiltersForSignlsBottomSheet();
+                filtersForSignlsBottomSheet.setOnFilterListener(new FiltersForSignlsBottomSheet.OnFilterListener() {
+                    @Override
+                    public void onFilter(String filters) {
+                        SignalsBySectorFragment.this.filters = filters;
+                        if (shownTab == 0){
+                            sellLinearLayout.callOnClick();
+                        }
+                        else {
+                            buyLinearLayout.callOnClick();
+                        }
+                    }
+                });
+                filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
+            }
+        });
+
 
         srl = root.findViewById(R.id.srl);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,10 +15,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.tradestock.cityfalcom.Adapters.FiltersAdapter;
 import com.tradestock.cityfalcom.Models.FiltersArticle;
+import com.tradestock.cityfalcom.Models.InstrumentsForFilters;
 import com.tradestock.cityfalcom.R;
 import com.tradestock.cityfalcom.Networking.RegistrationResponse;
 import com.tradestock.cityfalcom.Networking.RetrofitCreate;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +32,8 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
 
     private String filtersId;
     Context context;
+    private OnFilterListener listener;
+    private FiltersAdapter  adapter;
 
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
@@ -38,12 +44,25 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_instruments_on_filter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         context = getActivity();
+        Button btnApply = root.findViewById(R.id.btn_apply);
+        btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtersId = adapter.getFilters();
+                if (listener!=null){
+                    listener.onFilter(filtersId);
+                }
+                dismiss();
+            }
+        });
 
         RetrofitCreate.getRetrofit().GetInstrumentsForFilters(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization()).enqueue(new Callback<FiltersArticle>() {
             @Override
             public void onResponse(Call<FiltersArticle> call, Response<FiltersArticle> response) {
-                FiltersAdapter  adapter = new FiltersAdapter(response.body().getInstruments(),context );
+                ArrayList<InstrumentsForFilters> items = response.body().getInstruments();
+                items.add(0,null);
+                adapter = new FiltersAdapter(response.body().getInstruments(),context );
                 recyclerView.setAdapter(adapter);
 
             }
@@ -84,8 +103,12 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
         return root;
     }
 
+    public void setOnFilterListener(OnFilterListener l){
+        this.listener = l;
+    }
 
-
-
+    interface OnFilterListener{
+        void onFilter(String filters);
+    }
 
 }

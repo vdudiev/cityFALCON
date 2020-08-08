@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tradestock.cityfalcom.R;
 import com.tradestock.cityfalcom.Networking.RegistrationResponse;
@@ -35,6 +37,10 @@ public class WatchlistFragment extends Fragment {
 
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
+    private String filters = "";
+    private int shownTab=0;
+
+    private Integer countOfShortTermsOnWatchlist;
 
 
     @Override
@@ -48,15 +54,43 @@ public class WatchlistFragment extends Fragment {
         LinearLayout buyLinearLayoutWatchLis = root.findViewById(R.id.LinearLayout_buy_watchlist_fragment);
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_watchlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        TextView textview_number_of_short_terms = root.findViewById(R.id.textview_number_of_short_terms_watchlist_fragment);
+        Button button_to_open_filters_from_watchlist = root.findViewById(R.id.button_to_open_filters_from_watchlist);
+        button_to_open_filters_from_watchlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FiltersForSignlsBottomSheet filtersForSignlsBottomSheet = new FiltersForSignlsBottomSheet();
+                filtersForSignlsBottomSheet.setOnFilterListener(new FiltersForSignlsBottomSheet.OnFilterListener() {
+                    @Override
+                    public void onFilter(String filters) {
+                        WatchlistFragment.this.filters = filters;
+                        if (shownTab == 0){
+                            sellLinearLayoutWatchList.callOnClick();
+                        }
+                        else {
+                            buyLinearLayoutWatchLis.callOnClick();
+                        }
+                    }
+                });
+                filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
+            }
+        });
 
 
         //first sell signals
+        countOfShortTermsOnWatchlist = 0;
         RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
-                                registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                registrationResponse.getAuthorization(),
+                filters).enqueue(new Callback<SignalsArticle>() {
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
+                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
+                countOfShortTermsOnWatchlist += adapter.getItemCount();
+                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
+                countOfShortTermsOnWatchlist += adapter.getItemCount();
+                textview_number_of_short_terms.setText(countOfShortTermsOnWatchlist.toString());
                 recyclerView.setAdapter(adapter);
             }
             @Override
@@ -69,10 +103,13 @@ public class WatchlistFragment extends Fragment {
         sellLinearLayoutWatchList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                shownTab=0;
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
-                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
+                        registrationResponse.getAuthorization(),
+                        filters).enqueue(new Callback<SignalsArticle>() {
 
                     @SuppressLint("SetTextI18n")
                     @Override
@@ -91,11 +128,15 @@ public class WatchlistFragment extends Fragment {
         buyLinearLayoutWatchLis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                shownTab=1;
                 buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
 
 
-                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),registrationResponse.getAuthorization()).enqueue(new Callback<SignalsArticle>() {
+                RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
+                        registrationResponse.getAuthorization(),
+                        filters
+                        ).enqueue(new Callback<SignalsArticle>() {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {

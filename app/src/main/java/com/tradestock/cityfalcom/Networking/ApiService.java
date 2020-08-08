@@ -33,9 +33,11 @@ public interface ApiService {
                                                  @Field("lang") String lang);
 
     //watch list
-    @GET("watchlist")
+    @FormUrlEncoded
+    @POST("watchlist")
     Call<SignalsArticle> GetWatchList   (@Header("Accept") String accept,
-                                         @Header("Authorization") String authorization);
+                                         @Header("Authorization") String authorization,
+                                         @Field("filter") String filter );
 
     @GET("instruments")
     Call<FiltersArticle> GetInstrumentsForFilters   (@Header("Accept") String accept,

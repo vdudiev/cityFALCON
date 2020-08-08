@@ -26,6 +26,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:id="@+id/button_to_open_filters_from_watchlist"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:layout_marginTop="3dp"
@@ -33,16 +34,40 @@
                 android:layout_gravity="end" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/text_number_of_short_terms_watchlist_fragment"
-            android:layout_width="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:text="Find ??? short-term Sell&amp;Buy trading signals for your investment plan."/>
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/textview_find_on_watchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:gravity="start"
+                android:text="fins   "/>
+
+            <TextView
+                android:id="@+id/textview_number_of_short_terms_watchlist_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/textview_find_on_watchlist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/textview_number_of_short_terms_watchlist_fragment"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="@string/short_term_sell_amp_buy_trading_signals_for_your_investment_plan"/>
+
+        </RelativeLayout>
 
 
         <LinearLayout
