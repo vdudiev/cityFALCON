@@ -1,5 +1,6 @@
 package com.tradestock.cityfalcom.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.tradestock.cityfalcom.Adapters.FiltersAdapter;
 import com.tradestock.cityfalcom.Models.FiltersArticle;
@@ -25,6 +27,7 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
 
 
     private String filtersId;
+    Context context;
 
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
@@ -34,12 +37,15 @@ public class FiltersForSignlsBottomSheet extends BottomSheetDialogFragment {
         View root = inflater.inflate(R.layout.bottom_sheet_filters_for_signals, container, false);
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_instruments_on_filter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        context = getActivity();
 
         RetrofitCreate.getRetrofit().GetInstrumentsForFilters(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization()).enqueue(new Callback<FiltersArticle>() {
             @Override
             public void onResponse(Call<FiltersArticle> call, Response<FiltersArticle> response) {
-                FiltersAdapter  adapter;
+                FiltersAdapter  adapter = new FiltersAdapter(response.body().getInstruments(),context );
+                recyclerView.setAdapter(adapter);
+
             }
 
             @Override

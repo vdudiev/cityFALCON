@@ -5,6 +5,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +35,6 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
     @Override
     public FiltersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.recycler_instruments_on_filters,parent,false);
-
         return new ViewHolder(view);
     }
 
@@ -41,6 +43,8 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull FiltersAdapter.ViewHolder holder, int position) {
         InstrumentsForFilters currentArticleData = list.get(position);
+        holder.image_check_on_filters.setImageResource(R.drawable.ic_filter_not_checked);
+        holder.textView_instrument_title_on_filters.setText(currentArticleData.getTitle());
 
 
     }
@@ -52,18 +56,16 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        /*final TextView sector;
-        final TextView sell;
-        final TextView buy;
-        final ImageView image_for_sector;
-        final ImageButton imageButton_go_to_sector_details;*/
+        final ImageView image_check_on_filters;
+        final TextView textView_instrument_title_on_filters;
+
 
 
         ViewHolder(View view){
             super(view);
 
-
-
+            image_check_on_filters = view.findViewById(R.id.instrument_image_on_filters);
+            textView_instrument_title_on_filters = view.findViewById(R.id.textView_instrument_title_on_filters);
         }
     }
 

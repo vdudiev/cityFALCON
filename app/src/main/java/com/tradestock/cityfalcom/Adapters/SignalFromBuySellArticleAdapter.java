@@ -51,17 +51,6 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     }
 
 
-
-    //signalSell or signalBuy
-    private Integer SellBuyChek;
-    public Integer getSellBuyChek() {
-        return SellBuyChek;
-    }
-    public void setSellBuyChek(Integer sellBuyChek) {
-        SellBuyChek = sellBuyChek;
-    }
-    private Integer check;
-
     @SuppressLint({"ResourceAsColor", "SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -172,7 +161,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
                 FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
                 SignalDetails signalDetails = new SignalDetails();
                 signalDetails.setSignal_to_set(signal_to_set_from_adapter);
-                //signalDetails.setSellBuyCheking(getSellBuyChek());
+
                 fragmentTransaction.add(R.id.content_fragment, signalDetails);
                 fragmentTransaction.addToBackStack("SignalDetails");
                 fragmentTransaction.commit();

@@ -120,7 +120,6 @@ public class SignalFragment extends Fragment {
                 adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
                 signalsCount += adapter.getItemCount();
                 textViewSignalCount.setText(signalsCount.toString());
-                adapter.setSellBuyChek(0);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -149,7 +148,6 @@ public class SignalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                         srl.setRefreshing(false);
 
@@ -180,7 +178,7 @@ public class SignalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
-                        adapter.setSellBuyChek(1);
+
                         recyclerView.setAdapter(adapter);
                         srl.setRefreshing(false);
                     }

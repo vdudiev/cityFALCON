@@ -40,6 +40,8 @@ public class SignalsBySectorFragment extends Fragment {
     public static String SECTOR_ID="SECTOR_ID";
     public static String SECTOR_NAME="SECTOR_NAME";
 
+
+
     private RegistrationResponse registrationResponse = new RegistrationResponse();
     private RecyclerView recyclerView;
     private Integer signalsCount;
@@ -130,7 +132,7 @@ public class SignalsBySectorFragment extends Fragment {
                 adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
                 signalsCount += adapter.getItemCount();
                 textViewSignalCount.setText(signalsCount.toString());
-                adapter.setSellBuyChek(0);
+
                 recyclerView.setAdapter(adapter);
             }
 
@@ -157,7 +159,7 @@ public class SignalsBySectorFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                        adapter.setSellBuyChek(0);
+
                         recyclerView.setAdapter(adapter);
                         srl.setRefreshing(false);
 
@@ -186,7 +188,7 @@ public class SignalsBySectorFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
-                        adapter.setSellBuyChek(1);
+
                         recyclerView.setAdapter(adapter);
                         srl.setRefreshing(false);
                     }

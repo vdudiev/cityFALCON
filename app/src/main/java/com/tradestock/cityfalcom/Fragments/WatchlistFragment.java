@@ -57,7 +57,6 @@ public class WatchlistFragment extends Fragment {
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                 SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                adapter.setSellBuyChek(0);
                 recyclerView.setAdapter(adapter);
             }
             @Override
@@ -79,7 +78,6 @@ public class WatchlistFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
                     @Override
@@ -102,7 +100,6 @@ public class WatchlistFragment extends Fragment {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
-                        adapter.setSellBuyChek(0);
                         recyclerView.setAdapter(adapter);
                     }
                     @Override
