@@ -33,6 +33,7 @@
             android:layout_alignParentStart="true"/>
 
         <TextView
+            android:id="@+id/textView_profit_or_loss_for_buy_on_live_trading_res"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -43,8 +44,7 @@
             android:layout_below="@+id/textView_tbs"
             android:textSize="14sp"
             android:textColor="@color/colorWhite"
-            android:text="@string/string_profit"
-            android:background="@drawable/round_corner_bottom_sheet_text_profit"/>
+            />
 
         <TextView
             android:id="@+id/textView_total_buy_signals"
@@ -55,6 +55,7 @@
             android:layout_alignParentEnd="true"/>
 
         <TextView
+            android:id="@+id/textView_buy_count_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorProfit"
@@ -85,6 +86,7 @@
             android:layout_alignParentStart="true"/>
 
         <TextView
+            android:id="@+id/textView_profit_or_loss_for_sell_on_live_trading_res"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -95,8 +97,8 @@
             android:layout_below="@+id/textView_tss"
             android:textSize="14sp"
             android:textColor="@color/colorWhite"
-            android:text="@string/string_loss"
-           android:background="@drawable/round_corner_bottom_sheet_text_loss"/>
+
+          />
 
         <TextView
             android:id="@+id/textView_total_sell_signals"
@@ -107,6 +109,7 @@
             android:layout_alignParentEnd="true"/>
 
         <TextView
+            android:id="@+id/textView_sell_count_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorProfit"

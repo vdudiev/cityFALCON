@@ -12,7 +12,7 @@
 
 
     <fragment
-        android:name="com.example.cityfalcon.Fragments.SignalFragment"
+        android:name="com.tradestock.cityfalcom.Fragments.SignalFragment"
         android:id="@+id/content_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
