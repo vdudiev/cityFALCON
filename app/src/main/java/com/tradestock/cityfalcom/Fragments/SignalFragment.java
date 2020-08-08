@@ -50,13 +50,15 @@ public class SignalFragment extends Fragment {
     private LinearLayout buyLinearLayout;
     private String search="";
     private EditText etSearch;
+    private Button button_search;
+    private Button buttonOnSignalFragmentToGetFilters;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_signal, container, false);
 
-        Button buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
+        buttonOnSignalFragmentToGetFilters = root.findViewById(R.id.button_on_signal_fragment_to_get_filters);
         buttonOnSignalFragmentToGetFilters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +66,30 @@ public class SignalFragment extends Fragment {
                 filtersForSignlsBottomSheet.show(getFragmentManager(),"filtersForSignlsBottomSheet");
             }
         });
+
+        //кнопка поиска
+        button_search = root.findViewById(R.id.button_search_signal_fragment);
+        button_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager inputManager =
+                        (InputMethodManager) getActivity().
+                                getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(
+                        getActivity().getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+                if(shownTab == 0){
+                    search = etSearch.getText().toString();
+                    sellLinearLayout.callOnClick();
+                }
+                else {
+                    search = etSearch.getText().toString();
+                    buyLinearLayout.callOnClick();
+                }
+
+            }
+        });
+
 
         srl = root.findViewById(R.id.srl);
         srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -76,6 +102,8 @@ public class SignalFragment extends Fragment {
                 }
             }
         });
+
+
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_signals);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         Context context = getActivity();

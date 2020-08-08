@@ -25,6 +25,8 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
     private Context cont;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
 
+    String filtrForSignals = "";
+
     public FiltersAdapter(List<InstrumentsForFilters> list, Context context) {
         this.list = list;
         this.inflater = LayoutInflater.from(context);
@@ -45,6 +47,7 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
         InstrumentsForFilters currentArticleData = list.get(position);
         holder.image_check_on_filters.setImageResource(R.drawable.ic_filter_not_checked);
         holder.textView_instrument_title_on_filters.setText(currentArticleData.getTitle());
+        holder.instrumentId = currentArticleData.getId().toString();
 
 
     }
@@ -58,6 +61,7 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView image_check_on_filters;
         final TextView textView_instrument_title_on_filters;
+        private String instrumentId;
 
 
 
@@ -66,6 +70,21 @@ public class FiltersAdapter extends RecyclerView.Adapter<FiltersAdapter.ViewHold
 
             image_check_on_filters = view.findViewById(R.id.instrument_image_on_filters);
             textView_instrument_title_on_filters = view.findViewById(R.id.textView_instrument_title_on_filters);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (filtrForSignals.contains(instrumentId)){
+                        filtrForSignals = filtrForSignals.replaceAll(instrumentId +" ", "");
+                        image_check_on_filters.setImageResource(R.drawable.ic_filter_not_checked);
+                    }
+                    else{
+                        filtrForSignals += instrumentId + " ";
+                        image_check_on_filters.setImageResource(R.drawable.ic_filter_checked);
+
+                    }
+
+                }
+            });
         }
     }
 
