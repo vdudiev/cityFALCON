@@ -90,6 +90,7 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
                 signalsBySectorFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = ((FragmentActivity) cont).getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.add(R.id.content_fragment, signalsBySectorFragment);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 fragmentTransaction.addToBackStack("signalsBySectorFragment");
                 fragmentTransaction.commit();
             });

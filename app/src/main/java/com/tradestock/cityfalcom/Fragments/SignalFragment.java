@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tradestock.cityfalcom.Networking.RegistrationResponse;
 import com.tradestock.cityfalcom.Networking.RetrofitCreate;
@@ -163,7 +164,7 @@ public class SignalFragment extends Fragment {
 
             @Override
             public void onFailure(Call<SignalsArticle> call, Throwable t) {
-
+                Toast.makeText(getContext(),t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

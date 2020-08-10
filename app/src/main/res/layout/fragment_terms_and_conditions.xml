@@ -45,27 +45,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4sp"
+                android:id="@+id/tv_full_terms"
                 android:text="@string/string_1st_part_terms_conditions"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/string_spotifi"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:lineSpacingExtra="4sp"
-                android:text="@string/string_2_part_terms_conditions_"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
 

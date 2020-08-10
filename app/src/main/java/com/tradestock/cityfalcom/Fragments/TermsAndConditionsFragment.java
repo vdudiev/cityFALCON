@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.tradestock.cityfalcom.R;
+import com.tradestock.cityfalcom.TradeApp;
 
 import java.util.Objects;
 
@@ -38,12 +41,12 @@ public class TermsAndConditionsFragment extends Fragment {
         backToMoreImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransactionMore =((FragmentActivity) Objects.requireNonNull(getContext())).getSupportFragmentManager().beginTransaction();
-                MoreFragment moreFragment = new MoreFragment();
-                fragmentTransactionMore.replace(R.id.content_fragment,moreFragment);
-                fragmentTransactionMore.commit();
+                getActivity().onBackPressed();
             }
         });
+
+        TextView tv_full_terms = root.findViewById(R.id.tv_full_terms);
+        tv_full_terms.setText(Html.fromHtml(TradeApp.langs.getTermsConditions()));
 
         return root;
     }

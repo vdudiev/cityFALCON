@@ -1,6 +1,10 @@
 package com.tradestock.cityfalcom.Models;
 
-public class SignalsBuySellArticle {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class SignalsBuySellArticle implements Comparable<SignalsBuySellArticle>{
     private Integer id;
     private String symbol;
     private Integer origin_id;
@@ -162,5 +166,18 @@ public class SignalsBuySellArticle {
 
     public void setSector(SectorForSignals sector) {
         this.sector = sector;
+    }
+
+    @Override
+    public int compareTo(SignalsBuySellArticle o) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        try {
+            Date date = sdf.parse(updated_at);
+            Date date1 = sdf.parse(o.updated_at);
+            return date.compareTo(date1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

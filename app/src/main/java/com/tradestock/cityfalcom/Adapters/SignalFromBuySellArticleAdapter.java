@@ -164,10 +164,15 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
                 fragmentTransaction.add(R.id.content_fragment, signalDetails);
                 fragmentTransaction.addToBackStack("SignalDetails");
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 fragmentTransaction.commit();
 
             });
         }
+    }
+    public void  setItems(List<SignalsBuySellArticle> newItems){
+        list = newItems;
+        notifyDataSetChanged();
     }
 
 }

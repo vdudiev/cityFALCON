@@ -6,13 +6,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.tradestock.cityfalcom.R;
+import com.tradestock.cityfalcom.TradeApp;
 
 
 public class SubscriptionFragment extends Fragment {
@@ -28,7 +32,16 @@ public class SubscriptionFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View root =  inflater.inflate(R.layout.fragment_subscription, container, false);
+        TextView textView_youll_get = root.findViewById(R.id.textView_youll_get);
+        textView_youll_get.setText(Html.fromHtml(TradeApp.langs.getSubscription()));
 
+        ImageView iv_back = root.findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
         //Billing
 
 /*        billingClient = BillingClient.newBuilder(activity).setListener((PurchasesUpdatedListener) this).build();

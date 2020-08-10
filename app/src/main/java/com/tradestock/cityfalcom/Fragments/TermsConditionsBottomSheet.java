@@ -1,6 +1,7 @@
 package com.tradestock.cityfalcom.Fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.tradestock.cityfalcom.Activities.HomeActivity;
 import com.tradestock.cityfalcom.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.tradestock.cityfalcom.TradeApp;
 
 public class TermsConditionsBottomSheet extends BottomSheetDialogFragment {
 
@@ -44,6 +46,8 @@ public class TermsConditionsBottomSheet extends BottomSheetDialogFragment {
 
             }
         });
+        TextView tv_full_terms = root.findViewById(R.id.tv_full_terms);
+        tv_full_terms.setText(Html.fromHtml(TradeApp.langs.getTermsConditions()));
         return root;
     }
 }

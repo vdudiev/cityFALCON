@@ -3,9 +3,13 @@ package com.tradestock.cityfalcom.Networking;
 import com.tradestock.cityfalcom.Models.AddedAndDeletedSignalIdArticle;
 import com.tradestock.cityfalcom.Models.FiltersArticle;
 import com.tradestock.cityfalcom.Models.InstrumentArticle;
+import com.tradestock.cityfalcom.Models.Instruments;
+import com.tradestock.cityfalcom.Models.Languages;
 import com.tradestock.cityfalcom.Models.SectorsArticle;
 import com.tradestock.cityfalcom.Models.SignalsArticle;
 import com.tradestock.cityfalcom.Models.SignalsMoreArticle;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -76,6 +80,10 @@ public interface ApiService {
                                             @Header("Authorization") String authorization,
                                             @Field("instrument") String instrument);
 
+    @GET("instruments")
+    Call<Instruments> GetInstruments(@Header("Accept") String accept,
+                                     @Header("Authorization") String authorization);
+
     @FormUrlEncoded
     @POST("watchlist-exists")
     Call<Integer> CheckSignalWatchList(@Header("Accept") String accept,
@@ -83,6 +91,14 @@ public interface ApiService {
                                        @Field("signal_id") Float signal_id);
 
 
+    @GET("lang")
+    Call<Languages> getLanguages(@Header("Accept") String accept,
+                                 @Header("Authorization") String authorization);
 
+
+    @GET("lang/{code}")
+    Call<Languages> getLanguage(@Header("Accept") String accept,
+                                @Header("Authorization") String authorization,
+                                @Path(value = "code", encoded = true) String code);
 
 }

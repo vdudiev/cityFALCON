@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     tools:context=".Fragments.SearchFragment">
     <!-- TODO: Update blank fragment layout -->
@@ -43,6 +44,10 @@
                 android:background="@color/colorFA"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:id="@+id/et_search"
                 android:hint="@string/companies_or_symbols"
                 android:textColorHint="@color/colorSecondary"/>
         </LinearLayout>
@@ -61,92 +66,110 @@
             android:background="@color/colorWhite"
             android:layout_marginTop="15dp">
 
-            <LinearLayout
-                android:id="@+id/linearLayout_scroll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="12dp"
-                android:paddingEnd="0dp">
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                style="@style/CustomTabLayout"
+                android:layout_marginLeft="16dp"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                android:id="@+id/tabs"
+                app:tabIndicator="@android:color/transparent">
 
-                <Button
-                    android:id="@+id/button_all__scroll_search_fragment"
+                <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:background="@drawable/outline_background_selected_search_fragment"
-                    android:textColor="@color/colorWhite"
-                    android:text="@string/string_all"
-                    android:layout_marginStart="8dp"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tab_bar_item_bg"
+                    android:text="ewwew"
+                    />
+            </com.google.android.material.tabs.TabLayout>
 
-                <Button
-                    android:id="@+id/button_eu_stocks_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_eu_stocks"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linearLayout_scroll"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingStart="12dp"-->
+<!--                android:paddingEnd="0dp">-->
 
-                <Button
-                    android:id="@+id/button_us_stocks_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_us_stocks"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--                <Button-->
+<!--                    android:id="@+id/button_all__scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--                    android:background="@drawable/outline_background_selected_search_fragment"-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:text="@string/string_all"-->
+<!--                    android:layout_marginStart="8dp"/>-->
 
-                <Button
-                    android:id="@+id/button_indices_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_indices"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--                <Button-->
+<!--                    android:id="@+id/button_eu_stocks_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_eu_stocks"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
 
-                <Button
-                    android:id="@+id/button_forex_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_forex"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--                <Button-->
+<!--                    android:id="@+id/button_us_stocks_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_us_stocks"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
 
-                <Button
-                    android:id="@+id/button_cryptos_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_cryptos"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--                <Button-->
+<!--                    android:id="@+id/button_indices_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_indices"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
 
-                <Button
-                    android:id="@+id/button_etf_s_scroll_search_fragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:textSize="10sp"
-                    android:background="@drawable/outline_background_search_fragment"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/string_etf_s"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.AppCompat.Button.Borderless"/>
+<!--                <Button-->
+<!--                    android:id="@+id/button_forex_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_forex"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
 
-            </LinearLayout>
+<!--                <Button-->
+<!--                    android:id="@+id/button_cryptos_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_cryptos"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/button_etf_s_scroll_search_fragment"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:background="@drawable/outline_background_search_fragment"-->
+<!--                    android:textColor="@color/colorBlack"-->
+<!--                    android:text="@string/string_etf_s"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    style="@style/Widget.AppCompat.Button.Borderless"/>-->
+
+<!--            </LinearLayout>-->
 
         </HorizontalScrollView>
 

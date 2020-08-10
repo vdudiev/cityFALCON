@@ -32,20 +32,23 @@ public class MoreFragment extends Fragment {
                 switch (v.getId()){
                     case R.id.frameLayout_about_more_fragment:
                         AboutFragment aboutFragment = new AboutFragment();
-                        fragmentTransaction.replace(R.id.content_fragment,aboutFragment);
-                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.add(R.id.content_fragment,aboutFragment);
+                        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        fragmentTransaction.addToBackStack("aboutFragment");
                         break;
 
                     case R.id.frameLayout_terms_conditions_more_fragment:
                         TermsAndConditionsFragment termsAndConditionsFragment = new TermsAndConditionsFragment();
-                        fragmentTransaction.replace(R.id.content_fragment,termsAndConditionsFragment);
-                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.add(R.id.content_fragment,termsAndConditionsFragment);
+                        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        fragmentTransaction.addToBackStack("termsAndConditionsFragment");
                         break;
 
                     case R.id.frameLayout_subscription_more_fragment:
                         SubscriptionFragment subscriptionFragment = new SubscriptionFragment();
-                        fragmentTransaction.replace(R.id.content_fragment, subscriptionFragment);
-                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.add(R.id.content_fragment, subscriptionFragment);
+                        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        fragmentTransaction.addToBackStack("subscriptionFragment");
                         break;
                 }
                 fragmentTransaction.commit();

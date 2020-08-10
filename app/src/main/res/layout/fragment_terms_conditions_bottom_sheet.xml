@@ -35,6 +35,7 @@
                 android:lineSpacingExtra="4sp"
                 android:text="@string/string_1st_part_terms_conditions"
                 android:textColor="@color/colorBlack"
+                android:id="@+id/tv_full_terms"
                 android:textSize="14sp" />
 
             <TextView
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/string_spotifi"
+                android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:textSize="14sp" />
@@ -51,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:lineSpacingExtra="4sp"
+                android:visibility="gone"
                 android:text="@string/string_2_part_terms_conditions_"
                 android:textColor="@color/colorBlack"
                 android:textSize="14sp" />

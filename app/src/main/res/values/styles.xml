@@ -8,5 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@drawable/tab_bar_item_bg</item>
+        <item name="selectableItemBackground">@drawable/tab_bar_item_bg</item>
+        <item name="indicatorColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="tabTextColor">@color/colorPrimary</item>
+        <item name="tabSelectedTextColor">@color/colorWhite</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
 
 </resources>

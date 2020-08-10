@@ -2,18 +2,18 @@ package com.tradestock.cityfalcom.Models;
 
 public class InstrumentsForFilters {
 
-    private Float id;
+    private Integer id;
     private String title;
     private String created_at;
     private String updated_at;
     private boolean checked;
 
 
-    public Float getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Float id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

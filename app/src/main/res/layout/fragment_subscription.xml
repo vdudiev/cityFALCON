@@ -18,24 +18,29 @@
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/image_button_back_to_more_frag_from_subscription"
+        android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow"
-        android:layout_marginTop="26dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="6dp"
+        android:padding="16dp"
         android:background="@color/colorWhite"/>
 
     <TextView
         android:id="@+id/textView_youll_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image_button_back_to_more_frag_from_subscription"
+
+        android:layout_below="@+id/iv_back"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="16sp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="фволрфвапр фвыарп фоырвап форыапв фдорывпа фдорывап форывпа фдорывпа дорфпвы дорфпы фдорвып адофрвып аофрывпа дфорывп аодфрывпа дфорывпа дфорывп адфроывап форыва пдофы\"
         android:textColor="@color/colorBlack"
-        android:text="@string/after_you_subscribe_you_ll_get_it"/>
+        android:gravity="center"
+        android:textSize="16sp" />
 
     <RelativeLayout
         android:id="@+id/advantages_subscription"
@@ -44,6 +49,7 @@
         android:layout_below="@+id/textView_youll_get"
         android:layout_centerHorizontal="true"
         android:paddingStart="13dp"
+        android:visibility="gone"
         android:layout_marginTop="15dp">
 
         <ImageView
