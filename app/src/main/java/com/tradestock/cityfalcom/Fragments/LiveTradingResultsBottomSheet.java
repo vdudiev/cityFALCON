@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.tradestock.cityfalcom.Models.SignalsBuySellArticle;
 import com.tradestock.cityfalcom.R;
 import com.tradestock.cityfalcom.Networking.RegistrationResponse;
 import com.tradestock.cityfalcom.Networking.RetrofitCreate;
@@ -38,8 +39,8 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
     private Float sell_count_percent;
     private Float buy_count_percent ;
 
-    private Float sell_signal_percent;
-    private Float buy_signal_percent;
+//    private Float sell_signal_percent;
+//    private Float buy_signal_percent;
 
 
     @Nullable
@@ -54,8 +55,8 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
             }
         });
 
-        sell_count_percent = (float) 0;
-        buy_count_percent  = (float) 0;
+        sell_count_percent = 0f;
+        buy_count_percent  = 0f;
 
         total_buy_signals = root.findViewById(R.id.textView_total_buy_signals);
         total_sell_signals = root.findViewById(R.id.textView_total_sell_signals);
@@ -78,8 +79,22 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
                 SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),getActivity());
                 buyCount = adapter.getItemCount();
                 for (Integer i = 0; i < adapter.getItemCount();i++){
-                    buy_signal_percent = 100 - ((response.body().getBuy().get(i).getPrice()/response.body().getBuy().get(i).getCurrent_price())*100);
-                    buy_count_percent += buy_signal_percent;
+                    float perDif = 0;
+                    SignalsBuySellArticle currentArticleData = response.body().getBuy().get(i);
+                    if(currentArticleData.getOrder().equals("buy")) {
+                        if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                            perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
+                        } else {
+                            perDif = Math.abs(100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100));
+                        }
+                    } else {
+                        if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                            perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
+                        } else {
+                            perDif = 100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100);
+                        }
+                    }
+                    buy_count_percent += perDif;
                 }
                 total_buy_signals.setText(buyCount.toString());
                 textView_buy_count_percent.setText(String.format("%.2f",buy_count_percent) + "%");
@@ -100,8 +115,22 @@ public class LiveTradingResultsBottomSheet extends BottomSheetDialogFragment {
                 adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),getActivity());
                 sellCount = adapter.getItemCount();
                 for (Integer i = 0; i < adapter.getItemCount();i++){
-                    sell_signal_percent = 100 - ((response.body().getSell().get(i).getPrice() / response.body().getSell().get(i).getCurrent_price())*100);
-                    sell_count_percent += sell_signal_percent;
+                    float perDif = 0;
+                    SignalsBuySellArticle currentArticleData = response.body().getSell().get(i);
+                    if(currentArticleData.getOrder().equals("buy")) {
+                        if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                            perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
+                        } else {
+                            perDif = Math.abs(100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100));
+                        }
+                    } else {
+                        if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                            perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
+                        } else {
+                            perDif = 100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100);
+                        }
+                    }
+                    sell_count_percent += perDif;
                 }
 
                 total_sell_signals.setText(sellCount.toString());
