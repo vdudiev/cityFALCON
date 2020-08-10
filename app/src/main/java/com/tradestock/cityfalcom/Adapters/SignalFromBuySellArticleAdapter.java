@@ -71,13 +71,13 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
             if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
                 perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
             } else {
-                perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
+                perDif = Math.abs(100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100));
             }
         } else {
             if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
                 perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
             } else {
-                perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
+                perDif = 100 - ((currentArticleData.getCurrent_price() / currentArticleData.getPrice()) * 100);
             }
         }
         if (perDif > 0 ) {

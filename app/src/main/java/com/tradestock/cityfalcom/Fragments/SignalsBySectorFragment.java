@@ -164,7 +164,7 @@ public class SignalsBySectorFragment extends Fragment {
             }
         });
 
-        textViewSignalCount = root.findViewById(R.id.textview_number_of_short_terms_signal_fragment);
+        textViewSignalCount = root.findViewById(R.id.textview_number_of_short_terms);
 
         sellLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

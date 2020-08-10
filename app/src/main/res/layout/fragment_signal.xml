@@ -52,7 +52,7 @@
                 android:text="Find    "/>
 
                 <TextView
-                    android:id="@+id/textview_number_of_short_terms_signal_fragment"
+                    android:id="@+id/textview_number_of_short_terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/textview_number_of_short_terms_signal_fragment"
+                    android:layout_toEndOf="@+id/textview_number_of_short_terms"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     android:gravity="center"

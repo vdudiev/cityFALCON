@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginTop="10dp">
 
             <TextView
@@ -192,8 +192,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
+                android:layout_marginLeft="24dp"
                 android:textColor="@color/colorSecondary"
-                android:text="@string/sell_price"
+                android:text="@string/sell_buy_price"
                 android:layout_gravity="center"/>
 
             <TextView

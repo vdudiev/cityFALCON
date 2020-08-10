@@ -34,6 +34,7 @@ public class SignalDetails extends Fragment {
     private Context context;
     private SignalsBuySellArticle signal_to_set;
     private RegistrationResponse registrationResponse = new RegistrationResponse();
+    private TextView tv_sell_buy;
 
 
     public SignalsBuySellArticle getSignal_to_set() {
@@ -52,6 +53,12 @@ public class SignalDetails extends Fragment {
         View root = inflater.inflate(R.layout.fragment_signal_details, container, false);
         Button buttonBackToSignals = root.findViewById(R.id.bottom_back_to_signals_from_details);
         Button buttonAddToWatchList = root.findViewById(R.id.btn_add_to_watchlist);
+        tv_sell_buy = root.findViewById(R.id.tv_sell_buy);
+        if (signal_to_set.getOrder().equals("sell")){
+            tv_sell_buy.setText(R.string.sell_price);
+        } else {
+            tv_sell_buy.setText(R.string.buy_price);
+        }
         if(signal_to_set.getWatchlist()==0){
             buttonAddToWatchList.setText(R.string.string_add_to_watchlist);
         } else {
@@ -116,15 +123,22 @@ public class SignalDetails extends Fragment {
         signal_price_on_signals_details.setText(signal_to_set.getPrice().toString());
         signal_current_price_on_signals_details.setText(signal_to_set.getCurrent_price().toString());
         tv_additional_detail.setText(Html.fromHtml(signal_to_set.getDetailed_signal_info()));
-        Float perDif = ((signal_to_set.getCurrent_price() - signal_to_set.getPrice())* 100)/ signal_to_set.getPrice();
-        if (perDif > 0 ) {
-            signal_percentage_difference_on_signals_details.setTextColor(getResources().getColor(R.color.colorProfit));
-            signal_percentage_difference_on_signals_details.setText("+" + String.format("%.2f",perDif)+"%");
+        float perDif = ((signal_to_set.getCurrent_price() - signal_to_set.getPrice())* 100)/ signal_to_set.getPrice();
+        if(signal_to_set.getOrder().equals("buy")) {
+            if (signal_to_set.getPrice() > signal_to_set.getCurrent_price()) {
+                perDif = 100 - ((signal_to_set.getPrice() / signal_to_set.getCurrent_price()) * 100);
+            } else {
+                perDif = Math.abs(100 - ((signal_to_set.getCurrent_price() / signal_to_set.getPrice()) * 100));
+            }
+        } else {
+            if (signal_to_set.getPrice() > signal_to_set.getCurrent_price()) {
+                perDif = Math.abs(100 - ((signal_to_set.getPrice() / signal_to_set.getCurrent_price()) * 100));
+            } else {
+                perDif = 100 - ((signal_to_set.getCurrent_price() / signal_to_set.getPrice()) * 100);
+            }
         }
-        else {
-            signal_percentage_difference_on_signals_details.setTextColor(getResources().getColor(R.color.colorLoss));
-            signal_percentage_difference_on_signals_details.setText(String.format("%.2f",perDif)+"%");
-        }
+        signal_percentage_difference_on_signals_details.setText(perDif+"");
+
         sector_title_signals_details.setText(signal_to_set.getSector().getTitle());
         stop_loss_on_signals_details.setText("SL = " +  signal_to_set.getStop_loss());
         profit_on_signals_details.setText("TP = " +  signal_to_set.getTake_profit());

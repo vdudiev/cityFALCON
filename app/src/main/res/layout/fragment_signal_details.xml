@@ -96,6 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="13sp"
+                        android:id="@+id/tv_sell_buy"
                         android:textColor="@color/colorSecondary"
                         android:text="@string/sell_price"
                         android:layout_gravity="center"/>
@@ -240,6 +241,7 @@
                         android:textColor="@color/colorProfit"
                         android:layout_toEndOf="@+id/textView_sl"
                         android:textSize="10sp"
+                        android:id="@+id/tv_tp"
                         android:text="@string/string_take_profit" />
 
                     <TextView
@@ -255,12 +257,13 @@
                         android:id="@+id/textView_take_profit_on_signals_details"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_tp"
+                        android:layout_alignLeft="@id/tv_tp"
+
                         android:layout_toEndOf="@+id/textView_stop_loss_on_signals_details"
+                        android:text="TP = 1.5050"
                         android:textColor="@color/colorBlack"
-                        android:layout_marginStart="78dp"
-                        android:layout_below = "@+id/textView_sl"
-                        android:textSize="16sp"
-                        android:text="TP = 1.5050" />
+                        android:textSize="16sp" />
                 </RelativeLayout>
 
                 <RelativeLayout

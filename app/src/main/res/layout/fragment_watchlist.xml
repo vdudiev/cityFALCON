@@ -38,34 +38,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="20dp"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/textview_find_on_watchlist"
+                android:id="@+id/textview_find"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp"
                 android:gravity="start"
-                android:text="fins   "/>
+                android:text="Find    "/>
 
             <TextView
-                android:id="@+id/textview_number_of_short_terms_watchlist_fragment"
+                android:id="@+id/textview_number_of_short_terms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:layout_toEndOf="@+id/textview_find_on_watchlist" />
+                android:layout_toEndOf="@+id/textview_find" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/textview_number_of_short_terms_watchlist_fragment"
+                android:layout_toEndOf="@+id/textview_number_of_short_terms"
                 android:textColor="@color/colorBlack"
                 android:textSize="15sp"
                 android:gravity="center"
-                android:text="@string/short_term_sell_amp_buy_trading_signals_for_your_investment_plan"/>
+                android:text="short-term Sell&amp;Buy trading signals for your investment plan."/>
 
         </RelativeLayout>
 

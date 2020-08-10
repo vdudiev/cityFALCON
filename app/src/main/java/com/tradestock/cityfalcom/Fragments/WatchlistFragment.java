@@ -57,7 +57,7 @@ public class WatchlistFragment extends Fragment {
         LinearLayout buyLinearLayoutWatchLis = root.findViewById(R.id.LinearLayout_buy_watchlist_fragment);
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_watchlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TextView textview_number_of_short_terms = root.findViewById(R.id.textview_number_of_short_terms_watchlist_fragment);
+        TextView textview_number_of_short_terms = root.findViewById(R.id.textview_number_of_short_terms);
         Button button_to_open_filters_from_watchlist = root.findViewById(R.id.button_to_open_filters_from_watchlist);
         button_to_open_filters_from_watchlist.setOnClickListener(new View.OnClickListener() {
             @Override
