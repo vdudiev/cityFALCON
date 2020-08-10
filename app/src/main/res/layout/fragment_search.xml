@@ -205,12 +205,18 @@
                 android:layout_gravity="end"/>
         </FrameLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_signals_on_search"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="20dp"
+            android:id="@+id/srl">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_signals_on_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
     </LinearLayout>

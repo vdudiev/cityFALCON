@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,13 +43,15 @@ public class WatchlistFragment extends Fragment {
 
     private Integer countOfShortTermsOnWatchlist;
 
+    private SwipeRefreshLayout srl;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_watchlist, container, false);
-
+        srl = root.findViewById(R.id.srl);
         Context context = getActivity();
         LinearLayout sellLinearLayoutWatchList = root.findViewById(R.id.LinearLayout_sell_watchlist_fragment);
         LinearLayout buyLinearLayoutWatchLis = root.findViewById(R.id.LinearLayout_buy_watchlist_fragment);
@@ -76,9 +79,22 @@ public class WatchlistFragment extends Fragment {
             }
         });
 
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (shownTab == 0){
+                    sellLinearLayoutWatchList.callOnClick();
+                }
+                else {
+                    buyLinearLayoutWatchLis.callOnClick();
+                }
+            }
+        });
+
 
         //first sell signals
         countOfShortTermsOnWatchlist = 0;
+        srl.setRefreshing(true);
         RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
                 filters).enqueue(new Callback<SignalsArticle>() {
@@ -92,6 +108,7 @@ public class WatchlistFragment extends Fragment {
                 countOfShortTermsOnWatchlist += adapter.getItemCount();
                 textview_number_of_short_terms.setText(countOfShortTermsOnWatchlist.toString());
                 recyclerView.setAdapter(adapter);
+                srl.setRefreshing(false);
             }
             @Override
             public void onFailure(Call<SignalsArticle> call, Throwable t) {
@@ -106,7 +123,7 @@ public class WatchlistFragment extends Fragment {
                 shownTab=0;
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
-
+                srl.setRefreshing(true);
                 RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
                         filters).enqueue(new Callback<SignalsArticle>() {
@@ -114,6 +131,7 @@ public class WatchlistFragment extends Fragment {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
+                        srl.setRefreshing(false);
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
                         recyclerView.setAdapter(adapter);
                     }
@@ -131,7 +149,7 @@ public class WatchlistFragment extends Fragment {
                 shownTab=1;
                 buyLinearLayoutWatchLis.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bottom_border_for_sell_or_buy));
                 sellLinearLayoutWatchList.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_with_shadow_for_selector_signals_fragment));
-
+                srl.setRefreshing(true);
 
                 RetrofitCreate.getRetrofit().GetWatchList(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
@@ -140,6 +158,7 @@ public class WatchlistFragment extends Fragment {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
+                        srl.setRefreshing(false);
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
                         recyclerView.setAdapter(adapter);
                     }

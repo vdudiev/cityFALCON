@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ public class SearchFragment extends Fragment {
     List<SignalsBuySellArticle> items = new ArrayList<>();
     Integer instrument_id = -1;
     EditText etSearch;
+    SwipeRefreshLayout srl;
 
     private ArrayList<Button> scrollSearchButtons = new ArrayList<>();
 
@@ -58,6 +60,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
+        srl = root.findViewById(R.id.srl);
         recyclerView = root.findViewById(R.id.recyclerview_signals_on_search);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -74,6 +77,13 @@ public class SearchFragment extends Fragment {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                updateFromServer();
             }
         });
 
@@ -124,6 +134,7 @@ public class SearchFragment extends Fragment {
     }
 
     public void updateFromServer(){
+        srl.setRefreshing(true);
         RetrofitCreate.getRetrofit().GetSignalsBuySell(RegistrationResponse.getAccept(),
                 RegistrationResponse.getAuthorization(),
                 "",
@@ -137,6 +148,7 @@ public class SearchFragment extends Fragment {
                 Collections.sort(items);
                 adapter = new SignalFromBuySellArticleAdapter(getFiltered(),getContext());
                 recyclerView.setAdapter(adapter);
+                srl.setRefreshing(false);
             }
 
             @Override

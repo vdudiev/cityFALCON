@@ -50,10 +50,13 @@ public interface ApiService {
     Call<SectorsArticle> GetSectors (@Header("Accept") String accept,
                                      @Header("Authorization") String authorization);
 
-    @GET("sectors/{sector}")
+    @FormUrlEncoded
+    @POST("sectors/{sector}")
     Call<SignalsArticle> GetSectorsByID (@Header("Accept") String accept,
                                          @Header("Authorization") String authorization,
-                                         @Path(value = "sector", encoded = true) Integer sector);
+                                         @Path(value = "sector", encoded = true) Integer sector,
+                                         @Field("search") String search,
+                                         @Field("filter") String filter);
 
     @FormUrlEncoded
     @POST("watchlist-delete")

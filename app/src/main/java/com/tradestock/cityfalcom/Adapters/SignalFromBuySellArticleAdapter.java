@@ -62,7 +62,24 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         holder.date_time.setText(sdf.format(date));
         holder.current_price.setText(currentArticleData.getCurrent_price().toString());
-        Float perDif =  100 - ((currentArticleData.getPrice()/currentArticleData.getCurrent_price())*100);
+        Float perDif =  0.0f;
+
+
+
+        perDif = 100 - ((currentArticleData.getPrice()/currentArticleData.getCurrent_price())*100);
+        if(currentArticleData.getOrder().equals("buy")) {
+            if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
+            } else {
+                perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
+            }
+        } else {
+            if (currentArticleData.getPrice() > currentArticleData.getCurrent_price()) {
+                perDif = Math.abs(100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100));
+            } else {
+                perDif = 100 - ((currentArticleData.getPrice() / currentArticleData.getCurrent_price()) * 100);
+            }
+        }
         if (perDif > 0 ) {
             holder.percentage_difference.setTextColor(cont.getResources().getColor(R.color.colorProfit));
             holder.percentage_difference.setText("+" + String.format("%.2f",perDif)+"%");

@@ -142,18 +142,20 @@ public class SignalsBySectorFragment extends Fragment {
         signalsCount = 0;
         RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                 registrationResponse.getAuthorization(),
-                sectorID).enqueue(new Callback<SignalsArticle>() {
+                sectorID, search, filters).enqueue(new Callback<SignalsArticle>() {
 
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
-                signalsCount += adapter.getItemCount();
-                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                signalsCount += adapter.getItemCount();
-                textViewSignalCount.setText(signalsCount.toString());
-
-                recyclerView.setAdapter(adapter);
+                if (response.body()!=null && response.body().getBuy()!=null) {
+                    SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(), context);
+                    signalsCount += adapter.getItemCount();
+                    adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(), context);
+                    signalsCount += adapter.getItemCount();
+                    textViewSignalCount.setText(signalsCount.toString());
+                    recyclerView.setAdapter(adapter);
+                }
+                srl.setRefreshing(false);
             }
 
             @Override
@@ -175,14 +177,16 @@ public class SignalsBySectorFragment extends Fragment {
 
                 RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
-                        sectorID).enqueue(new Callback<SignalsArticle>() {
+                        sectorID, search, filters).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                        SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
+                        if (response.body()!=null&& response.body().getSell()!=null) {
+                            SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(), context);
 
-                        recyclerView.setAdapter(adapter);
+                            recyclerView.setAdapter(adapter);
+
+                        }
                         srl.setRefreshing(false);
-
                     }
 
                     @Override
@@ -204,7 +208,7 @@ public class SignalsBySectorFragment extends Fragment {
 
                 RetrofitCreate.getRetrofit().GetSectorsByID(registrationResponse.getAccept(),
                         registrationResponse.getAuthorization(),
-                        sectorID).enqueue(new Callback<SignalsArticle>() {
+                        sectorID, search, filters).enqueue(new Callback<SignalsArticle>() {
                     @Override
                     public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
                         SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
