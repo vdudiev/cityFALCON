@@ -173,7 +173,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/sell_price"
                 android:id="@+id/tv_sell_buy"
@@ -190,7 +190,7 @@
                 android:textColor="@color/colorSecondary"
                 android:text="@string/string_current_price"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="110dp"
+                android:layout_marginRight="80dp"
                 android:layout_gravity="end"/>
         </RelativeLayout>
 
