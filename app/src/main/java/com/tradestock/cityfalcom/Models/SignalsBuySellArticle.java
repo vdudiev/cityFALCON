@@ -174,7 +174,7 @@ public class SignalsBuySellArticle implements Comparable<SignalsBuySellArticle>{
         try {
             Date date = sdf.parse(updated_at);
             Date date1 = sdf.parse(o.updated_at);
-            return date.compareTo(date1);
+            return date1.compareTo(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }

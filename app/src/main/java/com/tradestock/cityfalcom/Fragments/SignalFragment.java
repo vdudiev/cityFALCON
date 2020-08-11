@@ -154,12 +154,14 @@ public class SignalFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<SignalsArticle> call, Response<SignalsArticle> response) {
-                SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(),context);
-                signalsCount += adapter.getItemCount();
-                adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(),context);
-                signalsCount += adapter.getItemCount();
-                textViewSignalCount.setText(signalsCount.toString());
-                recyclerView.setAdapter(adapter);
+                if(response!=null&&response.body()!=null&&response.body().getBuy()!=null) {
+                    SignalFromBuySellArticleAdapter adapter = new SignalFromBuySellArticleAdapter(response.body().getBuy(), context);
+                    signalsCount += adapter.getItemCount();
+                    adapter = new SignalFromBuySellArticleAdapter(response.body().getSell(), context);
+                    signalsCount += adapter.getItemCount();
+                    textViewSignalCount.setText(signalsCount.toString());
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override

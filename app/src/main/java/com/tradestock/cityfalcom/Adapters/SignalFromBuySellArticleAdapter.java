@@ -22,6 +22,7 @@ import com.tradestock.cityfalcom.Networking.RetrofitCreate;
 import com.tradestock.cityfalcom.R;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
 
     public SignalFromBuySellArticleAdapter(List<SignalsBuySellArticle> list, Context context) {
         this.list = list;
+        Collections.sort(this.list);
         this.inflater = LayoutInflater.from(context);
         cont = context;
     }
@@ -189,6 +191,7 @@ public class SignalFromBuySellArticleAdapter extends RecyclerView.Adapter<Signal
     }
     public void  setItems(List<SignalsBuySellArticle> newItems){
         list = newItems;
+        Collections.sort(list);
         notifyDataSetChanged();
     }
 

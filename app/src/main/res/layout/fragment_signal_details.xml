@@ -274,13 +274,15 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="15dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <WebView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="9sp"
                         android:text="Overview (in tables, charts and analytical text) of the latest trends of trade in goods and services of World, selected region and trade groups, and most countries and areas in the world."
                         android:textColor="@color/colorBlack"
                         android:textSize="16sp"
+                        android:clickable="true"
+                        android:linksClickable="true"
                         android:id="@+id/tv_additional_detail"/>
 
                 </RelativeLayout>

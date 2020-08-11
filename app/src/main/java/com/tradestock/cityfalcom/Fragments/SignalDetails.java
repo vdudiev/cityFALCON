@@ -7,9 +7,12 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -112,17 +115,27 @@ public class SignalDetails extends Fragment {
         TextView sector_title_signals_details = root.findViewById(R.id.textView_sector_title_signals_details);
         TextView stop_loss_on_signals_details = root.findViewById(R.id.textView_stop_loss_on_signals_details);
         TextView profit_on_signals_details = root.findViewById(R.id.textView_take_profit_on_signals_details);
-        TextView tv_additional_detail = root.findViewById(R.id.tv_additional_detail);
+        WebView wv_additional_detail = root.findViewById(R.id.tv_additional_detail);
 
 
         signals_details_symbol_up.setText(signal_to_set.getSymbol());
         signals_details_symbol_mid.setText(signal_to_set.getSymbol());
-        Date date = new Date(System.currentTimeMillis()-24*60*60*1000);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        signal_date_time_on_signals_details.setText(sdf.format(date));
+//        Date date = new Date(System.currentTimeMillis()-24*60*60*1000);
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        signal_date_time_on_signals_details.setText(signal_to_set.getCreated_at());
         signal_price_on_signals_details.setText(signal_to_set.getPrice().toString());
         signal_current_price_on_signals_details.setText(signal_to_set.getCurrent_price().toString());
-        tv_additional_detail.setText(Html.fromHtml(signal_to_set.getDetailed_signal_info()));
+        if (signal_to_set.getDetailed_signal_info()!=null&&signal_to_set.getDetailed_signal_info().length()>0) {
+
+
+
+            wv_additional_detail.loadData(signal_to_set.getDetailed_signal_info(),null,null);
+//            tv_additional_detail.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        } else {
+//            wv_additional_detail.setText("");
+        }
         float perDif = ((signal_to_set.getCurrent_price() - signal_to_set.getPrice())* 100)/ signal_to_set.getPrice();
         if(signal_to_set.getOrder().equals("buy")) {
             if (signal_to_set.getPrice() > signal_to_set.getCurrent_price()) {
@@ -137,7 +150,12 @@ public class SignalDetails extends Fragment {
                 perDif = 100 - ((signal_to_set.getCurrent_price() / signal_to_set.getPrice()) * 100);
             }
         }
-        signal_percentage_difference_on_signals_details.setText(perDif+"");
+        signal_percentage_difference_on_signals_details.setText(perDif+"%");
+        if(perDif>=0){
+            signal_percentage_difference_on_signals_details.setTextColor(getResources().getColor(R.color.colorProfit));
+        } else {
+            signal_percentage_difference_on_signals_details.setTextColor(getResources().getColor(R.color.colorLoss));
+        }
 
         sector_title_signals_details.setText(signal_to_set.getSector().getTitle());
         stop_loss_on_signals_details.setText("SL = " +  signal_to_set.getStop_loss());

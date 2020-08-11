@@ -20,7 +20,7 @@
     <string name="string_subscription">Subscription</string>
     <string name="string_terms_amp_conditions"><![CDATA[Terms&Conditions]]></string>
     <string name="string_sectors_list">Sectors list</string>
-    <string name="string_current_price">Close price</string>
+    <string name="string_current_price">Previous close</string>
     <string name="string_communication_services">Communication Services</string>
     <string name="string_consumer_discretionary">Consumer Discretionary</string>
     <string name="string_consumer_staples">Consumer Staples</string>
@@ -41,7 +41,7 @@
     <string name="string_real_estate">Real Estate</string>
     <string name="string_technology">Technology</string>
     <string name="string_utilities">Utilities</string>
-    <string name="string_tradestockapp_com">TradeStockApp.com</string>
+    <string name="string_tradestockapp_com">TradeStocksApp.com</string>
     <string name="string_1st_part_terms_conditions">Thanks for choosing Spotifi (“Spotify,” “we,” “us,” “our”). Spotify provides personalized services with social and interactive features for streaming music and other content as well as other products and services that may be developed from time to time.</string>
     <string name="string_spotifi">Spotifi</string>
     <string name="string_2_part_terms_conditions_">By signing up or otherwise using any of these Spotify services, including all associated features and functionalities, websites and user interfaces, as well as all content and software applications associated with our services (collectively, the “Spotify Service” or “Service”), or accessing any music, videos or other content or material that is made available through the Service (the “Content”) you are entering into a binding contract with Spotify USA Inc. Thanks for choosing Spotify (“Spotify,” “we,” “us,” “our”). Spotify provides personalized services with social and interactive features for streaming music and other content as well as other products and services that may be developed from time to time. By signing up or otherwise using any of these Spotify services, including all associated features and functionalities, websites and user interfaces, as well as all content and software applications associated with our services (collectively, the “Spotify Service” or “Service”), or accessing any music, videos or other content or material that is made available through the Service (the “Content”) you are entering into a binding contract with Spotify USA Inc.</string>

@@ -156,7 +156,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -178,16 +178,21 @@
                 android:text="@string/sell_price"
                 android:id="@+id/tv_sell_buy"
                 android:textColor="@color/colorSecondary"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@id/tv_price_close_text"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
+                android:id="@+id/tv_price_close_text"
                 android:textColor="@color/colorSecondary"
                 android:text="@string/string_current_price"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="110dp"
                 android:layout_gravity="end"/>
-        </FrameLayout>
+        </RelativeLayout>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
