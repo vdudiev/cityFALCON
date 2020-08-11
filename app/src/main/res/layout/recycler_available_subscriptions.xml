@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/outline_background_primary_subscription_fragment"
+    android:layout_marginTop="15dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/sevenDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_7_days_free_trial_period"
+            android:textColor="@color/colorPrimary"
+            android:textSize="10sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="33dp"/>
+
+        <TextView
+            android:id="@+id/textView_period_of_subscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_below="@+id/sevenDays"
+            android:text="Monthly subscription"
+            android:textColor="@color/colorBlack"
+            android:layout_marginStart="33dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/textView_cost_of_subscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="30$"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="26dp"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
