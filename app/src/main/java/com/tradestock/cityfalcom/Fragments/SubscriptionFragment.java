@@ -65,7 +65,8 @@ public class SubscriptionFragment extends Fragment implements PurchasesUpdatedLi
             }
         });
         //Billing
-        billingClient = BillingClient.newBuilder(getActivity()).setListener(this).build();
+        billingClient = BillingClient.newBuilder(getActivity()).setListener(this).enablePendingPurchases().build();
+       // billingClient.newBuilder(getActivity()).enablePendingPurchases();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
